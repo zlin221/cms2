@@ -193,13 +193,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   
   <body BACKGROUND="<%=basePath%>/image/bg.gif">
-    	<FORM NAME="idFrmMain" ID="idmig0101" METHOD="POST"  ACTION="" ONSUBMIT="return true" >
+    	<FORM NAME="idFrmMain" ID="idmig0101" METHOD="POST"  ACTION="" ONSUBMIT="" >
 
 <table border=0 cellspacing=0 cellpadding=2 width="100%" bgcolor="gray">
 <tr>
 	<td class="headerbar61">货号查询</td>
     <td class="headerbar63" width="50%" colspan="1"><p align="right">
-    	<input type=submit value=" 查 询 " onClick="return queryclothing();"></p></td>
+    	<input type=submit value=" 查 询 " onClick="queryclothing();"></p></td>
   </tr>
 <!-- </tr>-->
 </table>

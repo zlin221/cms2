@@ -33,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body BACKGROUND="<%=basePath%>/image/bg.gif">
-	    <FORM NAME="BSDTERM001" ID="BSDTERM001" METHOD="POST"  ACTION="" ONSUBMIT="return false" >
+	    <FORM NAME="BSDTERM001" ID="BSDTERM001" METHOD="POST"  ACTION="" ONSUBMIT="" >
 			<table border=0 cellspacing=0 cellpadding=2 width="100%" bgcolor="gray">
 				<tr>
 					<td class="headerbar61"> 修改密码</td>

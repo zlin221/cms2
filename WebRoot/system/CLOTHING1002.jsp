@@ -384,7 +384,7 @@ function back()
 
   
   <body BACKGROUND="<%=basePath%>/image/bg.gif">
-    	<FORM NAME="idFrmMain" ID="idFrmMain" METHOD="POST"  ACTION="" ONSUBMIT="return true"> 
+    	<FORM NAME="idFrmMain" ID="idFrmMain" METHOD="POST"  ACTION="" ONSUBMIT=""> 
 
  
   <table border="0" width="100%"> 

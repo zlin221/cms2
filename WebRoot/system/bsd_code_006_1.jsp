@@ -276,7 +276,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	
   <body BACKGROUND="<%=basePath%>/image/bg.gif">
-	 <FORM NAME="idFrmMain" ID="idFrmMain" METHOD="POST"  ACTION="" ONSUBMIT="return true"> 
+	 <FORM NAME="idFrmMain" ID="idFrmMain" METHOD="POST"  ACTION="" ONSUBMIT=""> 
 		<table border="0" width="100%">
 		    <tr>
 		    	<td width="100%" colspan="0" rowspan="0" align="center" valign="center">

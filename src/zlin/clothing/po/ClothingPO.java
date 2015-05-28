@@ -2,14 +2,14 @@ package zlin.clothing.po;
 
 public class ClothingPO {
 	private long id; //id
-	private String clothnum; //»õºÅ
-	private String type; //Æ·Ãû
-	private String color; //ÑÕÉ«
-	private String size; //´óÐ¡ 
-	private String fabric; //ÃæÁÏ
-	private String clothingMaterial;//ÀïÁÏ
-	private String factoryPrice; //³ö³§¼Û
-	private String retailPrice;//ÁãÊÛ¼Û
+	private String clothnum; //ï¿½ï¿½ï¿½ï¿½
+	private String type; //Æ·ï¿½ï¿½
+	private String color; //ï¿½ï¿½É«
+	private String size; //ï¿½ï¿½Ð¡ 
+	private String fabric; //ï¿½ï¿½ï¿½ï¿½
+	private String clothingMaterial;//ï¿½ï¿½ï¿½ï¿½
+	private String factoryPrice; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String retailPrice;//ï¿½ï¿½ï¿½Û¼ï¿½
 	public long getId() {
 		return id;
 	}
@@ -64,8 +64,4 @@ public class ClothingPO {
 	public void setRetailPrice(String retailPrice) {
 		this.retailPrice = retailPrice;
 	}
-	
-	
-	
-	
 }

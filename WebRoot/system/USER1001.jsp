@@ -49,7 +49,7 @@ function goSearch(){
 -->
 </SCRIPT>
   <body BACKGROUND="<%=basePath%>/image/bg.gif">
-    	<FORM NAME="mig0101" ID="idmig0101" METHOD="POST"  ACTION="" ONSUBMIT="return false" >
+    	<FORM NAME="mig0101" ID="idmig0101" METHOD="POST"  ACTION="" ONSUBMIT="" >
           <table border=0 cellspacing=0 cellpadding=2 width="100%" bgcolor="gray">
 			<tr>
 				<td class="headerbar61">用户明细查询</td>

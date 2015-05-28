@@ -43,7 +43,7 @@ function back()
 </SCRIPT>
   
   <body BACKGROUND="<%=basePath%>/image/bg.gif">
-    	<FORM NAME="idFrmMain" ID="idmig0102" METHOD="POST"  ACTION="" ONSUBMIT="return false"> 
+    	<FORM NAME="idFrmMain" ID="idmig0102" METHOD="POST"  ACTION="" ONSUBMIT=""> 
 <table border="0" width="100%" id="table1" cellspacing="0"  cellpadding="2"  bgcolor="gray">
 	<tr>
   	<td class="headerbar61" width="15%" colspan="1">用户详细</td>

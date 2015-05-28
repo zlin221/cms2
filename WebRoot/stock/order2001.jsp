@@ -68,7 +68,7 @@ function locatePage(id){
   
   
   <body BACKGROUND="<%=basePath%>/image/bg.gif">
-	<FORM NAME="idFrmMain" ID="idmig0101" METHOD="POST"  ACTION="" ONSUBMIT="return false" >
+	<FORM NAME="idFrmMain" ID="idmig0101" METHOD="POST"  ACTION="" ONSUBMIT="" >
 	 
 	<table border=0 cellspacing=0 cellpadding=2 width="100%" bgcolor="gray">
 	<tr>

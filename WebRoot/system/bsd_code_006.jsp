@@ -53,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</SCRIPT>
   
   <body BACKGROUND="<%=basePath%>/image/bg.gif">
-    <FORM NAME="idFrmMain" ID="idmig0101" METHOD="POST"  ACTION="" ONSUBMIT="return true" >
+    <FORM NAME="idFrmMain" ID="idmig0101" METHOD="POST"  ACTION="" ONSUBMIT="" >
 
 
 
@@ -153,7 +153,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <tr>
 	<td class="headerbar61">仓库查询</td>
     <td class="headerbar63" width="50%" colspan="1"><p align="right">
-    	<input type=submit value=" 查 询 " onClick="return querystore();"></p></td>
+    	<input type=submit value=" 查 询 " onClick="querystore();"></p></td>
   </tr>
 <!-- </tr>-->
 </table>
