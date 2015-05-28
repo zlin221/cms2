@@ -1,4 +1,4 @@
-package zlin.orderin.domain;
+package hjh.orderin.domain;
 
 import java.sql.Date;
 
