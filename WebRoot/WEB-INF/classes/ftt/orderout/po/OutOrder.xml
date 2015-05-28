@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="ftt.orderout.domain.OutOrder" table="OUT_ORDER">
+        <id name="id" type="long" column="ID">
+            <generator class="native" />
+        </id>
+        <property name="outNo" type="string" column="OUT_NO"/>
+        <property name="outStore" type="string" column="OUT_STORE"/>
+        <property name="outDate" type="string" column="OUTDATE"/>
+        <property name="receivePerson" type="string" column="RECEIVE_PERSON"/>
+        <property name="address" type="string" column="ADDRESS"/>
+        
+        <set name="outOrderDetails " cascade="save-update">
+            <key>
+                <column name="OUTORDER_ID" />   
+            </key>
+            <one-to-many class="ftt.orderout.domain.OutOrderDetail" />
+        </set>
+    </class>
+</hibernate-mapping>
