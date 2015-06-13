@@ -1,19 +1,46 @@
 package hjh.orderin.domain;
 
 public class InOrderDetail {
-	private int id;
+	private long inorderdetail_id;
+	
+	public long getInorderdetail_id() {
+		return inorderdetail_id;
+	}
+
+	public void setInorderdetail_id(long inorderdetail_id) {
+		this.inorderdetail_id = inorderdetail_id;
+	}
+
+	private long receiptsNumber;
 	private String articleNumber;
 	private String type;
 	private String color;
 	private String size;
 	private int count;
 
-	public int getId() {
-		return id;
+	public InOrderDetail() {
+	}
+	
+
+	public InOrderDetail(long inorderdetail_id, long receiptsNumber,
+			String articleNumber, String type, String color, String size,
+			int count) {
+		super();
+		this.inorderdetail_id = inorderdetail_id;
+		this.receiptsNumber = receiptsNumber;
+		this.articleNumber = articleNumber;
+		this.type = type;
+		this.color = color;
+		this.size = size;
+		this.count = count;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public long getReceiptsNumber() {
+		return receiptsNumber;
+	}
+
+	public void setReceiptsNumber(long receiptsNumber) {
+		this.receiptsNumber = receiptsNumber;
 	}
 
 	public String getArticleNumber() {
