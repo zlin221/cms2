@@ -106,7 +106,17 @@
 		</action>
 	</package>
 	
-	
+	<package name="hjh_orderin" extends="struts-default" namespace="/hjh">
+	    <action name="query_orderin_action" class="queryOrderInAction">
+	          <result name="success">/stock/order2001.jsp</result>
+	          <result name="error">/error.jsp</result>
+	    </action>
+	    <action name="delete_orderin_action" class="deleteOrderInAction">
+	          <result name="success">/success.jsp</result>
+	          <result name="error">/error.jsp</result>
+	            <result name="input">/error.jsp</result>
+	    </action>
+	</package>
 	
 
 </struts>

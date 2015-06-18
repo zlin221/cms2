@@ -1,14 +1,24 @@
 package hjh.orderin.domain;
 
-import java.sql.Date;
-
 public class InOrder {
 	private String repertory;
-	private String inNumber;
-	private Date inDate;
+	private long receiptsNumber;
+	private String inDate;
 	private String operator;
 	private String source;
 
+	public InOrder() {
+	}
+
+	public InOrder(String repertory, long receiptsNumber, String inDate,
+			String operator, String source) {
+		super();
+		this.repertory = repertory;
+		this.receiptsNumber = receiptsNumber;
+		this.inDate = inDate;
+		this.operator = operator;
+		this.source = source;
+	}
 	public String getRepertory() {
 		return repertory;
 	}
@@ -17,19 +27,19 @@ public class InOrder {
 		this.repertory = repertory;
 	}
 
-	public String getInNumber() {
-		return inNumber;
+	public long getReceiptsNumber() {
+		return receiptsNumber;
 	}
 
-	public void setInNumber(String inNumber) {
-		this.inNumber = inNumber;
+	public void setReceiptsNumber(long receiptsNumber) {
+		this.receiptsNumber = receiptsNumber;
 	}
 
-	public Date getInDate() {
+	public String getInDate() {
 		return inDate;
 	}
 
-	public void setInDate(Date inDate) {
+	public void setInDate(String inDate) {
 		this.inDate = inDate;
 	}
 
@@ -47,6 +57,13 @@ public class InOrder {
 
 	public void setSource(String source) {
 		this.source = source;
+	}
+
+	@Override
+	public String toString() {
+		return "InOrder [repertory=" + repertory + ", receiptsNumber="
+				+ receiptsNumber + ", inDate=" + inDate + ", operator="
+				+ operator + ", source=" + source + "]";
 	}
 
 }
