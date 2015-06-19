@@ -158,9 +158,18 @@
 		<property name="query" ref="queryOrderInDAOImpl"></property>
 	</bean>
 	
+	<bean id="queryRepertories" class="hjh.orderin.daoimpl.QueryRepertoriesDAOImpl">
+	 <property name="sessionFactory" ref="sessionfactory"></property>
+	</bean>
+	
+	<bean id="queryRepertoriesServiceImpl" class="hjh.orderin.serviceimpl.QueryRepertoriesServiceImpl">
+	    <property name="queryRepertoriesDAO" ref="queryRepertories"></property>
+	</bean>
+	
 	<bean id="queryOrderInAction" class="hjh.orderin.action.QueryOrderInAction"
 		scope="prototype">
 		<property name="queryOrderInService" ref="queryOrderInServiceImpl"></property>
+		<property name="queryRepertoriesService" ref="queryRepertoriesServiceImpl"></property>
 	</bean>
 
 <!-- 删除入库单模块 -->
@@ -176,6 +185,33 @@
 		scope="prototype">
 		<property name="deleteOrderInService" ref="deleteOrderInServiceImpl"></property>
 	</bean>
+<!-- 添加入库单模块 -->	
+    <bean id="getAddOrderInDAOImpl" class="hjh.orderin.daoimpl.GetAddOrderInDAOImpl">
+        <property name="sessionFactory" ref="sessionfactory"></property>
+    </bean>
+    
+    <bean id="getAddOrderInServiceImpl" class="hjh.orderin.serviceimpl.GetAddOrderInServiceImpl">
+         <property name="getAddOrderInDAO" ref="getAddOrderInDAOImpl"></property>
+    </bean>
+    
+    <bean id="getAddOrderInPageAction" class="hjh.orderin.action.GetAddOrderInPageAction">
+         <property name="getAddOrderInService" ref="getAddOrderInServiceImpl"></property>
+    </bean>
+    
+    
+    
+    
+    <bean id="addOrderInDAOImpl" class="hjh.orderin.daoimpl.AddOrderInDAOImpl">
+        <property name="sessionFactory" ref="sessionfactory"></property>
+    </bean>
+    
+    <bean id="addOrderInServiceImpl" class="hjh.orderin.serviceimpl.AddOrderInServiceImpl">
+        <property name="addOrderInDAO" ref="addOrderInDAOImpl"></property>
+    </bean>
+    
+    <bean id="addOrderInAction" class="hjh.orderin.action.AddOrderInAction" scope="prototype">
+        <property name="addOrderInService" ref="addOrderInServiceImpl"></property>
+    </bean>
 </beans>
 
 

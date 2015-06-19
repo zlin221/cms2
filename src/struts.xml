@@ -112,9 +112,18 @@
 	          <result name="error">/error.jsp</result>
 	    </action>
 	    <action name="delete_orderin_action" class="deleteOrderInAction">
-	          <result name="success">/success.jsp</result>
+	          <result name="success" type="redirectAction">query_orderin_action</result>
 	          <result name="error">/error.jsp</result>
 	            <result name="input">/error.jsp</result>
+	    </action>
+	    
+	    <action name="get_orderinpage_action" class="getAddOrderInPageAction">
+	          <result name="success">/stock/order2002.jsp</result>
+	          <result name="error">/error.jsp</result>
+	    </action>
+	    <action name="add_orderin_action" class="addOrderInAction">
+	          <result name="success" type="redirectAction">query_orderin_action</result>
+	          <result name="error">/error.jsp</result>
 	    </action>
 	</package>
 	

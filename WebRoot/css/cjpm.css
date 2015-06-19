@@ -48,7 +48,7 @@ td.menubar1 {font-family:宋体,Verdana,Arial;font-size:9pt;color:#000000;text-ali
 td.menubar2 {font-family:宋体,Verdana,Arial;font-size:9pt;color:#000000;text-align:center;line-height:14px;}
 td.menubar3 {font-family:宋体,Verdana,Arial;font-size:9pt;color:#000000;text-align:right;line-height:14px;}
 td.gridbar01 {color:#000000;background:#FFFFFF;font-family:宋体,Verdana,Arial;font-size:9pt;line-height:16px;} /* GRID白背景色居左对齐的文字 */
-td.gridbar11 {color:#000000;background:#FFFFCC;font-family:宋体,Verdana,Arial;font-size:9pt;line-height:16px;} /* GRID黄背景色居左对齐的文字 */
+td.gridbar11 {color:#000000;background:#FFFFCC;font-family:宋体,Verdana,Arial;font-size:9pt;line-height:25px;} /* GRID黄背景色居左对齐的文字 */
 td.plan00 {color:#000000;background:#FFFFFF;font-family:宋体,Verdana,Arial;font-size:9pt;line-height:16px;} /* 缺省：       黑色前景，白色背景   */
 td.plan01 {color:#000000;background:#FFCC99;font-family:宋体,Verdana,Arial;font-size:9pt;line-height:16px;} /* 等待批准：   黑色前景，淡黄色背景 */
 td.plan02 {color:#000000;background:#99CC99;font-family:宋体,Verdana,Arial;font-size:9pt;line-height:16px;} /* 同意的任务： 黑色前景，草绿色背景 */

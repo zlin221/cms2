@@ -35,8 +35,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 function goSearch()
 {
-	document.forms[0].action="hjh/query_orderin_action.action";
+    var receiptsNumber = document.getElementById("receiptsNumber").value;
+    var inDepotSelect = document.getElementById("inDepot");
+    var inDepot = inDepotSelect.options[inDepotSelect.selectedIndex];
+    var dateStart = document.getElementById("frmWRPT_OPT_DATE2_PJT70302").value;
+    var dateEnd = document.getElementById("frmWRPT_OPT_DATE3_PJT70302").value;
+	document.forms[0].action="hjh/query_orderin_action.action?receiptsNumber=" + receiptsNumber +
+	    "&inDepot=" + inDepot + "&dateStart=" + dateStart + "&dateEnd=" + dateEnd + 
+	    "&firstPage=1";
 	document.forms[0].submit();
+}
+function goSearch2(){
+    document.forms[0].action="hjh/query_orderin_action.action?receiptsNumber=&inDepot=0&dateStart=&dateEnd=&firstPage=1";
+    document.forms[0].submit();
 }
 function delOrderInById(num)
 {	
@@ -66,7 +77,6 @@ function locatePage(id){
 	document.forms[0].submit();		
 }
 
- 
 -->
 </SCRIPT>
   
@@ -78,9 +88,11 @@ function locatePage(id){
 	<table border=0 cellspacing=0 cellpadding=2 width="100%" bgcolor="gray">
 	<tr>
 		<td class="headerbar61">入库单查询</td>
-		<td class="headerbar61"><p align="right">
-			<input type=submit value=" 查 询 " onClick="JavaScript:goSearch();">		
-			</p>
+		<td class="headerbar61">
+		<p align="right">
+			<input type=submit value=" 查 询 " onClick="JavaScript:goSearch();">	
+			<input type=submit value=" 查 询 全部" onClick="JavaScript:goSearch2();">	
+		</p>
 		</td>
 	</tr>
 	</table>
@@ -97,17 +109,16 @@ function locatePage(id){
 		<tr>
 			<td class= "textbar81" width="15%">所入仓库</td>
 			<td class="textbar01" width="35%">
-				<select name="storeRoom" style="width:152px">
-					<option value="">------</option>
-					<option value="1">一号仓库</option>
-					<option value="2">二号仓库</option>
-					<option value="3">三号仓库</option>
-					<option value="4">四号仓库</option>		
+				<select id="inDepot" name="storeRoom" style="width:152px">
+					<option value="0">------</option>
+					<s:iterator value="repertories">
+					    <option value="<s:property/>"><s:property/></option>
+					</s:iterator>	
 				</select>
 			</td>
 		  <td class="textbar81" width="15%">单据编号</td>
 			<td class="textbar01" width="35%">
-				<input type="text" name="number" style="width:152px">
+				<input id="receiptsNumber" type="text" name="number" style="width:152px">
 			</td>				
 	
 		</tr>
@@ -115,10 +126,10 @@ function locatePage(id){
 		<tr>			  
 			<td class="textbar81" width="15%">入库日期</td>
 			<td class="textbar01" width="35%" colspan="3">
-				<input type="text" name="frmWRPT_OPT_DATE2_PJT70302" id="frmWRPT_OPT_DATE2_PJT70302" value="2007-06-21" readonly="readonly" size="12">
+				<input type="text" name="frmWRPT_OPT_DATE2_PJT70302" id="frmWRPT_OPT_DATE2_PJT70302" value="2008-06-21" readonly="readonly" size="12">
 				<input type="image" src="<%=basePath%>/image/calendar.gif" width="18" height="17" onClick="CalendarWebControl.show(forms[0].frmWRPT_OPT_DATE2_PJT70302,'',forms[0].frmWRPT_OPT_DATE2_PJT70302);" title="显示日历" />
 				~ 
-				<input type="text" name="frmWRPT_OPT_DATE3_PJT70302" id="frmWRPT_OPT_DATE3_PJT70302" value="2007-06-26" readonly="readonly" size="12">
+				<input type="text" name="frmWRPT_OPT_DATE3_PJT70302" id="frmWRPT_OPT_DATE3_PJT70302" value="2015-09-26" readonly="readonly" size="12">
 				<input type="image" src="<%=basePath%>/image/calendar.gif" width="18" height="17" onClick="CalendarWebControl.show(forms[0].frmWRPT_OPT_DATE3_PJT70302,'',forms[0].frmWRPT_OPT_DATE3_PJT70302);" title="显示日历" />
 		  </td>
 			
@@ -135,13 +146,10 @@ function locatePage(id){
 	
 	<table border="0" width="100%" id="table1" cellspacing="0"  cellpadding="2"  bgcolor="gray">
 		<tr>
-	  	<td class="headerbar61" width="100%" colspan="1">入库单列表</td>
-	  		<td class="headerbar61">
-	  		<p align="rigth">
-	  			<input type=submit value=" 新 增 " onClick="JavaScript:jsgoto('<%=basePath%>/stock/order2002.jsp');">
-	  		</p>
+	  	<td class="headerbar61" width="100%" colspan="1">
+	  	入库单列表<a href="hjh/get_orderinpage_action.action" style="margin-left: 985px">新&nbsp;&nbsp;增&nbsp;</a>
 	  	</td>
-	  	
+	  	</tr>
 	  	
 	</table>
 	
@@ -195,12 +203,15 @@ function locatePage(id){
 	<table width="100%" border="0" cellpadding="0" cellspacing="2">
 		<tr>
 	  	<td colspan="2" align="right" height="20"  nowrap class="textbar3" >
-		&nbsp; 共4条 &nbsp;&nbsp; 第1/1页 &nbsp;&nbsp;
-			<a  href="#" style="cursor:hand">首页</a>&nbsp;&nbsp; 
-	 		<a style="cursor:hand" href="#">上一页</a>&nbsp;&nbsp; 
-	 		<a style="cursor:hand" href="#">下一页</a>&nbsp;&nbsp; 
-	 		<a style="cursor:hand" href="#">尾页</a>&nbsp;&nbsp;  
-			</td>
+		&nbsp; 共<s:property value="pages"/>条 &nbsp;&nbsp; 第<s:property value="currentpage"/>/<s:property value="pages"/>页 &nbsp;&nbsp;
+			<a  href="http://localhost:8080/cms-final/hjh/query_orderin_action.action?receiptsNumber=<s:property value="receiptsNumber"/>&inDepot=<s:property value="inDepot"/>&dateStart=<s:property value="dateStart" />&dateEnd=<s:property  value="dateEnd"/>&firstPage=1" style="cursor:hand">首页</a>&nbsp;&nbsp; 
+	 		<a style="cursor:hand" href="http://localhost:8080/cms-final/hjh/query_orderin_action.action?receiptsNumber=<s:property value="receiptsNumber"/>&inDepot=<s:property value="inDepot"/>&dateStart=<s:property value="dateStart" />&dateEnd=<s:property value="dateEnd"/>&firstPage=<s:property value="prepage"/>" >上一页</a>
+	 		&nbsp;&nbsp; 
+	 		<a style="cursor:hand" href="http://localhost:8080/cms-final/hjh/query_orderin_action.action?receiptsNumber=<s:property value="receiptsNumber"/>&inDepot=<s:property value="inDepot"/>&dateStart=<s:property value="dateStart" />&dateEnd=<s:property value="dateEnd"/>&firstPage=<s:property value="nextpage"/> ">下一页</a>
+	 		&nbsp;&nbsp; 
+	 		<a style="cursor:hand" href="http://localhost:8080/cms-final/hjh/query_orderin_action.action?receiptsNumber=<s:property value="receiptsNumber"/>&inDepot=<s:property value="inDepot"/>&dateStart=<s:property value="dateStart" />&dateEnd=<s:property value="dateEnd"/>&firstPage=<s:property value="pages"/> ">尾页</a>
+	 		&nbsp;&nbsp;  
+		</td>
 	  </tr>
 	</table>
 	</FORM>
