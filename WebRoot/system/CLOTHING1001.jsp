@@ -204,11 +204,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <tr>
 	<td class="headerbar61">货号查询</td>
     <td class="headerbar63" width="50%" colspan="1"><p align="right">
-<<<<<<< HEAD
+
     	<input type=submit value=" 查 询 " onClick="return queryclothing();" id="querysubmit"></p></td>
-=======
-    	<input type=submit value=" 查 询 " onClick="return queryclothing();"></p></td>
->>>>>>> origin/master
+
   </tr>
 <!-- </tr>-->
 </table>
