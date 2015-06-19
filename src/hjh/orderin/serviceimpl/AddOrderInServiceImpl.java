@@ -3,6 +3,8 @@ package hjh.orderin.serviceimpl;
 import java.sql.Date;
 import java.util.HashSet;
 
+import zlin.store.po.StorePO;
+
 import hjh.orderin.dao.AddOrderInDAO;
 import hjh.orderin.domain.InOrder;
 import hjh.orderin.domain.InOrderDetail;
@@ -10,8 +12,16 @@ import hjh.orderin.service.AddOrderInService;
 
 public class AddOrderInServiceImpl implements AddOrderInService {
     private AddOrderInDAO addOrderInDAO;
+    private int countSum;
     
-    
+	public int getCountSum() {
+		return countSum;
+	}
+
+	public void setCountSum(int countSum) {
+		this.countSum = countSum;
+	}
+
 	public AddOrderInDAO getAddOrderInDAO() {
 		return addOrderInDAO;
 	}
@@ -36,7 +46,7 @@ public class AddOrderInServiceImpl implements AddOrderInService {
 		inOrder.setNote(note);
 		inOrder.setInOrderDetails(details);
 		
-		return addOrderInDAO.addOrderIn(inOrder);
+		return addOrderInDAO.addOrderIn(inOrder,countSum);
 	}
 
 	public HashSet<InOrderDetail>  parseDetails(String detailsStr){
@@ -51,6 +61,8 @@ public class AddOrderInServiceImpl implements AddOrderInService {
 			inOrderDetail.setSize(detail[3]);
 			inOrderDetail.setCount(Integer.valueOf(detail[4]));
 			inOrderDetails.add(inOrderDetail);
+			countSum += Integer.valueOf(detail[4]);
+			System.out.println(countSum);
 		}
 		return inOrderDetails;
 	}

@@ -28,7 +28,7 @@ public class DeleteOrderInDAOImpl implements DeleteOrderInDAO {
 		Transaction tx = session.beginTransaction();
 		try {
 			InOrder inOrder = (InOrder) session.get(InOrder.class, receiptsNumber);
-			System.out.println(inOrder);
+//			System.out.println(inOrder);
 			if(inOrder != null) {
 				session.delete(inOrder);
 				tx.commit();

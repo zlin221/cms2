@@ -49,10 +49,12 @@ function goSearch2(){
     document.forms[0].action="hjh/query_orderin_action.action?receiptsNumber=&inDepot=0&dateStart=&dateEnd=&firstPage=1";
     document.forms[0].submit();
 }
-function delOrderInById(num)
+function delOrderInById(url)
 {	
-	document.forms[0].action= "hjh/delete_orderin_action.action?receiptsNumber=" + num;
-	document.forms[0].submit();
+   if(confirm("确定要删除这条入库单吗？删除后不会减少仓库存储量哦！")){
+     document.forms[0].action= url;
+	 document.forms[0].submit();
+   }
 }
 function delCom(id){
 	if(id == '1'){
@@ -185,9 +187,8 @@ function locatePage(id){
 							<td  class="gridbar11" align="center"><s:property value="operator"/></td>
 							<td  class="gridbar11" align="center"><s:property value="source"/></td>
 							<td  class="gridbar11" align="center">
-							     <a href="hjh/delete_orderin_action.action?receiptsNumber=${receiptsNumber }">
-							          <img src="<%=basePath%>/image/del.gif" align="bottom" border="0" alt="作废" />
-							     </a>
+							          <img src="<%=basePath%>/image/del.gif" align="bottom" border="0" alt="作废" 
+							              onclick="JavaScript:delOrderInById('hjh/delete_orderin_action.action?receiptsNumber=${receiptsNumber}');"/>
 							</td>
 						</tr>
 					</s:iterator>

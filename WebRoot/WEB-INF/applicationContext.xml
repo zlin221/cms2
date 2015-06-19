@@ -206,7 +206,8 @@
         <property name="sessionFactory" ref="sessionfactory"></property>
     </bean>
     
-    <bean id="addOrderInServiceImpl" class="hjh.orderin.serviceimpl.AddOrderInServiceImpl">
+    <bean id="addOrderInServiceImpl" class="hjh.orderin.serviceimpl.AddOrderInServiceImpl"
+    scope="prototype">
         <property name="addOrderInDAO" ref="addOrderInDAOImpl"></property>
     </bean>
     

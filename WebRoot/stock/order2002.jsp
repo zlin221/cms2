@@ -211,14 +211,14 @@
 		<table border=0 cellspacing=1 cellpadding=2 width="100%"
 			bgcolor="gray">
 			<tr>
-				<td class="textbar81" width="15%">单据号</td>
+				<td class="textbar81" width="15%">单据编号</td>
 				<td class="textbar01" width="35%"><input type="text"
-					value="自动编号..." readonly size="20"></td>
+					value="自动编号..." readonly size="20" style="font-size: 15px;"></td>
 				<td class="textbar81" width="15%">入库日期</td>
 				<td class="textbar01" width="35%">
 				    <input type="text" 
 					name="frmWRPT_OPT_DATE2_PJT70302" id="frmWRPT_OPT_DATE2_PJT70302"
-					value="2007-06-21" readonly="readonly" size="12"/>
+					readonly="readonly" size="12" style="font-size: 15px ;"/>
 					<img src="<%=basePath%>/image/calendar.gif" width="18" height="17"
 					onClick="CalendarWebControl.show(forms[0].frmWRPT_OPT_DATE2_PJT70302,'',forms[0].frmWRPT_OPT_DATE2_PJT70302);"
 					title="显示日历" /></td>
@@ -226,7 +226,7 @@
 			<tr>
 				<td class="textbar81" width="15%">所入仓库</td>
 				<td class="textbar01" width="35%">
-				<select id="repotory" name="storeRoom" style="width:152px" >
+				<select id="repotory" name="storeRoom" style="width:152px;font-size: 20px" >
 						<option value="0">------</option>
 						<s:iterator value="repertories">
 							<option value="<s:property/>"><s:property/></option>
@@ -234,13 +234,13 @@
 				</select></td>
 				<td class="textbar81" width="15%">来源</td>
 				<td class="textbar01" width="35%">
-				     <input id="source" type="text" name="frmWRPT" value="" size="20"/>
+				     <input id="source" type="text" name="frmWRPT" value="" size="20" style="font-size: 15px;"/>
 				</td>
 			</tr>
 			<tr>
 				<td class="textbar81" width="15%">备注</td>
 				<td class="textbar01" width="85%" colspan="3">
-				<textarea id="note" name="textarea" cols="80" rows="4"></textarea>
+				<textarea id="note" name="textarea" cols="80" rows="2" style="font-size: 15px;"></textarea>
 				</td>
 			</tr>
 
@@ -279,20 +279,22 @@
 				<td class="headerbar82">操作</td>
 			</tr>
 			<tr id="1">
-				<td class="gridbar01" align="center" style="height:35px">1</td>
+				<td class="gridbar01" align="center" style="height:25px">1</td>
 				<s:iterator value="clothingInfos">
-					<td class="gridbar01" align="center" style="height:35px">
-					<select  style="width:180px; height:35px">
+					<td class="gridbar01" align="center" style="height:25px">
+					<select  style="width:180px; height:25px;font-size: 17px;">
 					       <option value ="0">----</option>
 							<s:iterator value="top" id="object">
-								<option value="<s:property value="#object" />">
+								<option value="<s:property value="#object" />" style="height:20px;">
 									<s:property value="#object" />
 								</option>
 							</s:iterator>
 					</select></td>
 				</s:iterator>
-				<td >   <input type="text" style="width:180px ;height:35px"></td>
-				<td class="gridbar01" align="center" style="height:35px">
+				<td style="background-color: white;">   
+				    <input type="text" style="width:180px ;height:25px;font-size: 20px;border-width: 2px;border-color: white;">
+				</td>
+				<td class="gridbar01" align="center" style="height:25px ">
 				    <img src="<%=basePath%>/image/del.gif" align="bottom" border="0"alt="删除" 
 				         style="height:20px"/>
 				</td>
