@@ -228,10 +228,9 @@
 				<td class="textbar01" width="35%">
 				<select id="repotory" name="storeRoom" style="width:152px" >
 						<option value="0">------</option>
-						<option value="1">first repertory</option>
-						<option value="2">second repertory</option>
-						<option value="3">third repertory</option>
-						<option value="4">fourth repertory</option>
+						<s:iterator value="repertories">
+							<option value="<s:property/>"><s:property/></option>
+						</s:iterator>
 				</select></td>
 				<td class="textbar81" width="15%">来源</td>
 				<td class="textbar01" width="35%">

@@ -36,8 +36,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 function goSearch()
 {
     var receiptsNumber = document.getElementById("receiptsNumber").value;
-    var inDepotSelect = document.getElementById("inDepot");
-    var inDepot = inDepotSelect.options[inDepotSelect.selectedIndex];
+    var inDepot = document.getElementById("inDepot").value;
+    alert(inDepot);
     var dateStart = document.getElementById("frmWRPT_OPT_DATE2_PJT70302").value;
     var dateEnd = document.getElementById("frmWRPT_OPT_DATE3_PJT70302").value;
 	document.forms[0].action="hjh/query_orderin_action.action?receiptsNumber=" + receiptsNumber +
@@ -126,7 +126,7 @@ function locatePage(id){
 		<tr>			  
 			<td class="textbar81" width="15%">入库日期</td>
 			<td class="textbar01" width="35%" colspan="3">
-				<input type="text" name="frmWRPT_OPT_DATE2_PJT70302" id="frmWRPT_OPT_DATE2_PJT70302" value="2008-06-21" readonly="readonly" size="12">
+				<input type="text" name="frmWRPT_OPT_DATE2_PJT70302" id="frmWRPT_OPT_DATE2_PJT70302" value="2007-06-21" readonly="readonly" size="12">
 				<input type="image" src="<%=basePath%>/image/calendar.gif" width="18" height="17" onClick="CalendarWebControl.show(forms[0].frmWRPT_OPT_DATE2_PJT70302,'',forms[0].frmWRPT_OPT_DATE2_PJT70302);" title="显示日历" />
 				~ 
 				<input type="text" name="frmWRPT_OPT_DATE3_PJT70302" id="frmWRPT_OPT_DATE3_PJT70302" value="2015-09-26" readonly="readonly" size="12">

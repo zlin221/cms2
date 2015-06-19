@@ -11,8 +11,8 @@ import com.opensymphony.xwork2.ActionSupport;
 public class QueryOrderInAction extends ActionSupport {
 	private String receiptsNumber = "";
 	private String inDepot = "0";
-	private String dateStart = "2007-01-01";
-	private String dateEnd="2020-12-31";
+	private String dateStart = "";
+	private String dateEnd="";
 	private QueryOrderInService queryOrderInService;
 	private QueryRepertoriesService queryRepertoriesService;
 	private int firstPage = 1;

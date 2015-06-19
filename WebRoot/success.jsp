@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,6 +9,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
+    <title>My JSP 'success.jsp' starting page</title>
+    
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -17,16 +19,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-	<title>无标题文档</title>
+
   </head>
   
-	    <frameset cols="180,10,*" name="sss" frameborder="NO" border="0" framespacing="0" rows="*">
-	    <frame name="left" noresize scrolling="auto" src="<%=basePath%>/stock/left.jsp">
-	    <frame src="<%=basePath%>/stock/middle.jsp" name="middle" scrolling="NO" noresize>
-	    <frame name="main" src="http://localhost:8080/cms-final/hjh/query_orderin_action.action" scrolling="auto">
-	   </frameset><noframes></noframes>
-		<noframes><body>
-		</body></noframes>
-
+  <body>
+    This is my JSP page. <br>
+  </body>
 </html>

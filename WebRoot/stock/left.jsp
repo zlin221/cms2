@@ -53,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		           
 					 <tr>
 		              <td width="16%"><div align="right"><img src="<%=basePath%>/image/dot1.gif" width="13" height="16"></div></td>
-		              <td width="84%"><a href="<%=basePath%>/stock/order2001.jsp" target="main">入库管理</a></td>
+		              <td width="84%"><a href="http://localhost:8080/cms-final/hjh/query_orderin_action.action" target="main">入库管理</a></td>
 		            </tr>
 					<tr>
 		              <td width="16%"><div align="right"><img src="<%=basePath%>/image/dot1.gif" width="13" height="16"></div></td>

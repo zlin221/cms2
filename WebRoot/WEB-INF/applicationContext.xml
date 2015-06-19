@@ -196,6 +196,7 @@
     
     <bean id="getAddOrderInPageAction" class="hjh.orderin.action.GetAddOrderInPageAction">
          <property name="getAddOrderInService" ref="getAddOrderInServiceImpl"></property>
+         <property name="queryRepertoriesService" ref="queryRepertoriesServiceImpl"></property>
     </bean>
     
     
