@@ -28,7 +28,8 @@ public class ClothingDao extends HibernateDaoSupport
 	//获取全部信息
 	public int getAllRowCount(String hql)
     {
-			int allRows = 0;           
+			int allRows = 0;  
+					
         	allRows = this.getHibernateTemplate().find(hql).size();
         
         	return allRows;
