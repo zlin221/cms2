@@ -11,8 +11,17 @@ public class AddOrderInAction extends ActionSupport {
 	private String note;
 	private String orderInDetails;
 	
+	private long justInsertId = -1;
+	
 	private AddOrderInService addOrderInService;
 	
+	public long getJustInsertId() {
+		return justInsertId;
+	}
+
+	public void setJustInsertId(long justInsertId) {
+		this.justInsertId = justInsertId;
+	}
 
 	public AddOrderInService getAddOrderInService() {
 		return addOrderInService;
@@ -64,9 +73,8 @@ public class AddOrderInAction extends ActionSupport {
 
 	@Override
 	public String execute() throws Exception {
-		System.out.println(inDate);
-		String result = addOrderInService.addOrderIn(inDate, repotory, source,note, orderInDetails);
-	    if(result.equals(SUCCESS)) return SUCCESS;
+		justInsertId = addOrderInService.addOrderIn(inDate, repotory, source,note, orderInDetails);
+	    if(justInsertId != -1) return SUCCESS;
 	    return ERROR;
 	}
 }

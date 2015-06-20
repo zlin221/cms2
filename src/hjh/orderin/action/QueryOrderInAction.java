@@ -6,10 +6,11 @@ import hjh.orderin.domain.InOrder;
 import hjh.orderin.service.QueryOrderInService;
 import hjh.orderin.service.QueryRepertoriesService;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-
+//http://blog.sina.com.cn/s/blog_601b97ee01018t7x.html
 public class QueryOrderInAction extends ActionSupport {
-	private String receiptsNumber = "";
+	private String receiptsNumber2 = "";
 	private String inDepot = "0";
 	private String dateStart = "";
 	private String dateEnd="";
@@ -90,12 +91,12 @@ public class QueryOrderInAction extends ActionSupport {
 		this.inDepot = inDepot;
 	}
 
-	public String getReceiptsNumber() {
-		return receiptsNumber;
+	public String getReceiptsNumber2() {
+		return receiptsNumber2;
 	}
 
-	public void setReceiptsNumber(String receiptsNumber) {
-		this.receiptsNumber = receiptsNumber;
+	public void setReceiptsNumber2(String receiptsNumber2) {
+		this.receiptsNumber2 = receiptsNumber2;
 	}
 
 	public String getDateStart() {
@@ -133,14 +134,18 @@ public class QueryOrderInAction extends ActionSupport {
 
 	@Override
 	public String execute() throws Exception {
-		inOrders = queryOrderInService.queryOrderIn(firstPage,receiptsNumber,inDepot,dateStart,dateEnd);
+		inOrders = queryOrderInService.queryOrderIn(firstPage,receiptsNumber2,inDepot,dateStart,dateEnd);
 		pages = queryOrderInService.getAllPages();
 		currentpage = queryOrderInService.getCurrentPage();
 		repertories = queryRepertoriesService.queryRepertories();
 
 		nextpage = currentpage + 1;
 		prepage = currentpage - 1;
-		if(inOrders != null) return SUCCESS;
+		if(inOrders != null) {
+			return SUCCESS;
+		}
+			
+			
 		else return ERROR;
 	}
 }

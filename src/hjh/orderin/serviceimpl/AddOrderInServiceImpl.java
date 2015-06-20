@@ -31,7 +31,7 @@ public class AddOrderInServiceImpl implements AddOrderInService {
 	}
 
 	@Override
-	public String addOrderIn(String inDate, String repotory, String source,String note,
+	public long addOrderIn(String inDate, String repotory, String source,String note,
 			String orderInDetails) {
 		HashSet<InOrderDetail> details = null ;
 		if(orderInDetails != null) details = parseDetails(orderInDetails);

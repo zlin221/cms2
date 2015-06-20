@@ -23,7 +23,7 @@ public class AddOrderInDAOImpl implements AddOrderInDAO {
 	}
 
 	@Override
-	public String addOrderIn(InOrder inOrder,int countSum) {
+	public long addOrderIn(InOrder inOrder,int countSum) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
 		try {
@@ -32,19 +32,19 @@ public class AddOrderInDAOImpl implements AddOrderInDAO {
 			if(storePO.size() == 1){
 				StorePO so = storePO.get(0);
 				so.setStoragevolume(Integer.valueOf(so.getStoragevolume()) + countSum + "");
-				session.save(inOrder);
+				long insertId = (Long) session.save(inOrder);
 				session.saveOrUpdate(so);
 				tx.commit();
-				return "success";
+				return insertId;
 			}else{
 				tx.rollback();
-				return "error";
+				return -1l;
 			}
 		} catch (Exception e) {
 			if (tx != null)
 				tx.rollback();
 			e.printStackTrace();
-			return "error";
+			return -1l;
 		} finally {
 			session.close();
 		}

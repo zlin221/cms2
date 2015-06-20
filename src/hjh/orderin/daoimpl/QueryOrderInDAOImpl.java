@@ -72,8 +72,9 @@ public class QueryOrderInDAOImpl implements QueryOrderInDAO {
 					String s1 = "from InOrder  where receiptsNumber =  :receiptsNum";
 					query = session.createQuery(s1).setLong("receiptsNum",Long.valueOf(receiptsNum));
 					 
-					SQLQuery sqlQuery =  session.createSQLQuery("select count(*) from inorder");
-				    int pages = (int) Math.ceil(((BigInteger)sqlQuery.list().get(0)).doubleValue()/10);
+//					SQLQuery sqlQuery =  session.createSQLQuery("select count(*) from inorder");
+//				    int pages = (int) Math.ceil(((BigInteger)sqlQuery.list().get(0)).doubleValue()/10);
+					int pages = 1;
 					if(firstPage <= 0){
 						currentpages = 1;
 						query.setFirstResult(0);
@@ -104,6 +105,18 @@ public class QueryOrderInDAOImpl implements QueryOrderInDAO {
     				if(!"".equals(endDate)){
     					countSql.append("inDate <= '" + endDate + "'");
     					otherSql.append("inDate <= :eDate");
+    				}
+    				if(otherSql.toString().endsWith("and ")){
+    					otherSql = otherSql.replace(otherSql.toString().lastIndexOf("and "),otherSql.toString().length() - 1,"");
+    				}
+    				if(countSql.toString().endsWith("and ")){
+    					countSql = countSql.replace(countSql.toString().lastIndexOf("and "),countSql.toString().length() - 1,"");
+    				}
+    				if(otherSql.toString().endsWith("where ")){
+    					otherSql = otherSql.replace(otherSql.toString().lastIndexOf("where "),otherSql.toString().length() - 1,"");
+    				}
+    				if(countSql.toString().endsWith("where ")){
+    					countSql = countSql.replace(countSql.toString().lastIndexOf("where "),countSql.toString().length() - 1,"");
     				}
     				
                 	query = session.createQuery(otherSql.toString());
@@ -155,7 +168,12 @@ public class QueryOrderInDAOImpl implements QueryOrderInDAO {
 					otherSql.append("inDate <= :eDate");
 					countSql.append("inDate <= '" + endDate +"'");
 				}
-				 
+				if(otherSql.toString().endsWith("and ")){
+					otherSql = otherSql.replace(otherSql.toString().lastIndexOf("and "),otherSql.toString().length() - 1,"");
+				}
+				if(countSql.toString().endsWith("and ")){
+					countSql = countSql.replace(countSql.toString().lastIndexOf("and "),countSql.toString().length() - 1,"");
+				}
 				query = session.createQuery(otherSql.toString());
 				if(!repotory.equals("0")) query.setString("repertory",repotory);
 				if(!"".equals(startDate)){

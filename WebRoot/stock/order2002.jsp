@@ -126,6 +126,11 @@
 	              return;
 	        }else if(count != "" && huohao != "0" && pingming != "0" && 
 	              color != "0" && size !="0"){
+	              if(isNaN(count)){
+	                  alert("请输入有效的数量");
+	                  column[11].childNodes[1].value = "";
+	                  return;
+	              }
 	              alert("同时新建yitiao入库单明细");
 	             if(confirm("确定新建一条入库单吗？")){
 	                window.location.href= "http://localhost:8080/cms-final/hjh/add_orderin_action.action?inDate=" + inDate +
@@ -139,7 +144,7 @@
 	                document.getElementById("frmWRPT_OPT_DATE2_PJT70302").value="";
 	                document.getElementById("repotory")[0].selected=true;
 	                document.getElementById("source").value="";
-	                 document.getElementById("note").value="";
+	                document.getElementById("note").value="";
 	              }
 	             return;
 	        }else if(count == "" || huohao == "0" || pingming == "0" || color == "0" || size =="0"){
@@ -160,6 +165,12 @@
 	            alert("保存新的入库单之前请保证每条入库单明细填写完整！");
 	            return;    
 	        }
+	        if(isNaN(count)){
+	            alert("请输入有效的数量");
+	            column[11].childNodes[1].value = "";
+	            return;
+	        }
+	        
 	        
 	        var rowParam = huohao+"," + pingming+"," + color+"," +size+"," + count+";";
 	        inOrderDetails += rowParam;
@@ -268,7 +279,7 @@
 
 
 		<table class="1" id="tab0" border="0" cellspacing="1" cellpadding="2"
-			width="100%" bgcolor="gray">
+			width="100%" bgcolor="gray" >
 			<tr id="0">
 				<td width="5%" class="headerbar82">序号</td>
 				<td width="17%" class="headerbar82">货号</td>
@@ -300,7 +311,6 @@
 				</td>
 			</tr>
 		</table>
-
 	</FORM>
 
 </body>
