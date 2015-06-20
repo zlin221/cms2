@@ -214,6 +214,20 @@
     <bean id="addOrderInAction" class="hjh.orderin.action.AddOrderInAction" scope="prototype">
         <property name="addOrderInService" ref="addOrderInServiceImpl"></property>
     </bean>
+    
+    
+ <!-- 更新入库单模块 -->  
+ <bean id="getOrderInDAOImpl" class="hjh.orderin.daoimpl.GetOrderInDAOImpl">
+ <property name="sessionFactory" ref="sessionfactory"></property>
+ </bean> 
+ 
+ <bean id="getOrderInServiceImpl" class="hjh.orderin.serviceimpl.GetOrderInServiceImpl">
+ <property name="getOrderInDAO" ref="getOrderInDAOImpl"></property>
+ </bean>
+ 
+ <bean id="getOrderInAction" class="hjh.orderin.action.GetOrderInAction" scope="prototype">
+ <property name="getOrderInService" ref="getOrderInServiceImpl"></property>
+ </bean>
 </beans>
 
 

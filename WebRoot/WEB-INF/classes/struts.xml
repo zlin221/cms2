@@ -135,6 +135,11 @@
 	          </result>
 	          <result name="error">/error.jsp</result>
 	    </action>
+	    
+	    <action name="get_orderin_action" class="getOrderInAction">
+	    <result name="success">/stock/order2002_2.jsp</result>
+	    <result name="error">/error.jsp</result>
+	    </action>
 	</package>
 	
 

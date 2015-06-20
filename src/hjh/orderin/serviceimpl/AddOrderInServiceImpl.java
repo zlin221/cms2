@@ -62,7 +62,6 @@ public class AddOrderInServiceImpl implements AddOrderInService {
 			inOrderDetail.setCount(Integer.valueOf(detail[4]));
 			inOrderDetails.add(inOrderDetail);
 			countSum += Integer.valueOf(detail[4]);
-			System.out.println(countSum);
 		}
 		return inOrderDetails;
 	}

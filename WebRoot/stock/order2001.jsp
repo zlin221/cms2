@@ -91,7 +91,6 @@ function locatePage(id){
 		<td class="headerbar61">
 		<p align="right">
 			<input type=submit value=" 查 询 " onClick="JavaScript:goSearch();">	
-			<input type=submit value=" 查 询 全部" onClick="JavaScript:goSearch2();">	
 		</p>
 		</td>
 	</tr>
@@ -162,9 +161,9 @@ function locatePage(id){
 						<td  width="5%"  class="headerbar82">序号</td>
 						<td   width="15%"  class="headerbar82">单据编号</td>
 						<td   width="20%" class="headerbar82">所入仓库</td>
-						<td    width="15%" class="headerbar82">入库日期</td>					
-						<td    width="15%" class="headerbar82">经办人</td>
-						<td    width="25%" class="headerbar82">来源</td>
+						<td   width="15%" class="headerbar82">入库日期</td>					
+						<td   width="15%" class="headerbar82">经办人</td>
+						<td   width="25%" class="headerbar82">来源</td>
 						<td  class="headerbar82">操作</td>			
 					</tr>
 					<s:if test="inOrders == null">
@@ -179,7 +178,7 @@ function locatePage(id){
 					<s:iterator value="inOrders" id="inOrder">
 						<tr>
 							<td  class="gridbar11" align="center"><%=index++ %></td>
-							<td  class="gridbar11" align="center"><a href="<%=basePath%>/stock/order2002.jsp"><s:property value="#inOrder.receiptsNumber"/></a></td>
+							<td  class="gridbar11" align="center"><a href="hjh/get_orderin_action.action?orderInId=<s:property value="#inOrder.receiptsNumber"/>"><s:property value="#inOrder.receiptsNumber"/></a></td>
 							<td  class="gridbar11" align="center"><s:property value="#inOrder.repertory"/> </td>
 							<td  class="gridbar11" align="center"><s:property value="#inOrder.inDate"/> </td>
 							<td  class="gridbar11" align="center"><s:property value="#inOrder.operator"/></td>
