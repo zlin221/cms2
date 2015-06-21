@@ -228,6 +228,18 @@
  <bean id="getOrderInAction" class="hjh.orderin.action.GetOrderInAction" scope="prototype">
  <property name="getOrderInService" ref="getOrderInServiceImpl"></property>
  </bean>
+ 
+ <bean id="updateOrderInDAOImpl" class="hjh.orderin.daoimpl.UpdateOrderInDAOImpl">
+  <property name="sessionFactory" ref="sessionfactory"></property>
+ </bean>
+ 
+ <bean id="updateOrderInServiceImpl" class="hjh.orderin.serviceimpl.UpdateOrderInServiceImpl">
+ <property name="updateOrderInDAOImpl" ref="updateOrderInDAOImpl"></property>
+ </bean>
+ 
+ <bean id="updateOrderInAction" class="hjh.orderin.action.UpdateOrderInAction" scope="prototype">
+    <property name="updateOrderInService" ref="updateOrderInServiceImpl"></property>
+ </bean>
 </beans>
 
 
