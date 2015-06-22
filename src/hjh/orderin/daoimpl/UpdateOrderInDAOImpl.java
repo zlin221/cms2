@@ -36,7 +36,7 @@ public class UpdateOrderInDAOImpl implements UpdateOrderInDAO {
 
 	@Override
 	public boolean update(String data,String receiptsNumber,String inDate,
-			String inDepot,String source,String note) {
+			String inDepot,String source,String note,String who) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
 		try {
@@ -50,6 +50,7 @@ public class UpdateOrderInDAOImpl implements UpdateOrderInDAO {
 		    inOrder.setReceiptsNumber(Long.valueOf(receiptsNumber));
 		    inOrder.setSource(source);
 		    inOrder.setRepertory(inDepot);
+		    inOrder.setOperator(who);
 		    session.saveOrUpdate(inOrder);
 		    
 		    //更新入库单明细
@@ -61,7 +62,7 @@ public class UpdateOrderInDAOImpl implements UpdateOrderInDAO {
 		    for(int i = 0;i < details.size();i++){
 		    	InOrderDetail detail = details.get(i);
 		    	oldCountSum += detail.getCount();
-		    	for(int j = 0;j < list.size();j++){
+		    	for(int j = 0;list != null & j < list.size();j++){
 		    		if(Long.valueOf(list.get(j)[0]) == detail.getInorderdetail_id()){
 		    			detail.setCount(Integer.valueOf(list.get(j)[1]));
 		    			session.saveOrUpdate(detail);
@@ -71,14 +72,20 @@ public class UpdateOrderInDAOImpl implements UpdateOrderInDAO {
 		    
 		    //更新仓库数量；
 		    int newCountSum = 0;
-		    for(int i = 0;i < list.size();i++){
+		    for(int i = 0;null != list && i < list.size();i++){
 		    	newCountSum += Integer.valueOf(list.get(i)[1]);
 		    }
 		    Query q = session.createQuery("from StorePO where storename= :storename");
 		    q.setString("storename",oldRepertory);
 		    List<StorePO> stores = q.list();
-		    stores.get(0).setStoragevolume("" + (Integer.valueOf(stores.get(0).getStoragevolume()) - oldCountSum + newCountSum));
+		    stores.get(0).setStoragevolume("" + (Integer.valueOf(stores.get(0).getStoragevolume()) - oldCountSum));
 		    session.saveOrUpdate(stores.get(0));
+		    
+		    Query q2 = session.createQuery("from StorePO where storename= :storename");
+		    q2.setString("storename",inDepot);
+		    List<StorePO> stores2 = q2.list();
+		    stores2.get(0).setStoragevolume("" + (Integer.valueOf(stores2.get(0).getStoragevolume()) + newCountSum));
+		    session.saveOrUpdate(stores2.get(0));
 			tx.commit();
 			
 			return true;

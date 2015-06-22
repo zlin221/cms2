@@ -31,10 +31,10 @@ public class AddOrderInServiceImpl implements AddOrderInService {
 	}
 
 	@Override
-	public long addOrderIn(String inDate, String repotory, String source,String note,
+	public long addOrderIn(String who,String inDate, String repotory, String source,String note,
 			String orderInDetails) {
 		HashSet<InOrderDetail> details = null ;
-		if(orderInDetails != null) details = parseDetails(orderInDetails);
+		if(!orderInDetails.trim().equals("")) details = parseDetails(orderInDetails);
 		
 		String[] dates = inDate.split("-");
 		InOrder inOrder = new InOrder();
@@ -42,7 +42,7 @@ public class AddOrderInServiceImpl implements AddOrderInService {
 				Integer.valueOf(dates[1]) - 1,Integer.valueOf(dates[2])));
 		inOrder.setRepertory(repotory);
 		inOrder.setSource(source);
-		inOrder.setOperator("hjh");
+		inOrder.setOperator(who);
 		inOrder.setNote(note);
 		inOrder.setInOrderDetails(details);
 		

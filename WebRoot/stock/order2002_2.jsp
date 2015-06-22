@@ -81,11 +81,14 @@
 	        }
 	    }
 	    
-	    var receiptsNumber = document.getElementById("receiptsNumber").value;
+	    var rawReceiptsNumber = document.getElementById("receiptsNumber").value;
+	    var receiptsNumber = rawReceiptsNumber.substring(rawReceiptsNumber.indexOf("RC071105CEN00") + 13,rawReceiptsNumber.length);
+	   
 	    var inDate = document.getElementById("frmWRPT_OPT_DATE2_PJT70302").value;
 	    var inDepot = document.getElementById("depot").value;
 	    var source = document.getElementById("source").value;
 	    var note = document.getElementById("note").value;
+	    var who = document.getElementById("who").value;
 	    var data = "";
 	    for(var i = 0;i < counts.length;i++)
 	        data = data + orderin_details_id[i] + "," + counts[i] + ";";
@@ -93,7 +96,7 @@
 	        
 	    document.forms[0].action="http://localhost:8080/cms-final/hjh/update_orderin_action.action?id_count=" 
 	           + data  + "&receiptsNumber=" + receiptsNumber + "&inDate=" + inDate
-	           + "&inDepot=" + inDepot + "&source=" + source + "&note=" + note;
+	           + "&inDepot=" + inDepot + "&source=" + source + "&note=" + note + "&who=" + who;
 	           
 	    alert("http://localhost:8080/cms-final/hjh/update_orderin_action.action?id_count=" 
 	           + data  + "&receiptsNumber=" + receiptsNumber + "&inDate=" + inDate
@@ -130,24 +133,33 @@
 		<table border=0 cellspacing=1 cellpadding=2 width="100%"
 			bgcolor="gray">
 			<tr>
-				<td class="textbar81" width="15%">单据编号</td>
-				<td class="textbar01" width="35%"><input id="receiptsNumber" type="text" readonly="readonly"
-					value="<s:property value="inOrder.receiptsNumber"/>" size="20" style="font-size: 15px;"></td>
-				<td class="textbar81" width="15%">入库日期</td>
-				<td class="textbar01" width="35%">
+				<td class="textbar81" width="10%">单据编号</td>
+				<td class="textbar01" width="25%"><input id="receiptsNumber" type="text" readonly="readonly"
+					value="RC071105CEN00<s:property value="inOrder.receiptsNumber"/>" size="20" style="font-size: 15px;"></td>
+				<td class="textbar81" width="10%">入库日期</td>
+				<td class="textbar01" width="25%">
 				    <input type="text" readonly="readonly" name="frmWRPT_OPT_DATE2_PJT70302" id="frmWRPT_OPT_DATE2_PJT70302"
 					 value ="<s:property value="inOrder.inDate"/>"size="12" style="font-size: 15px ;"/>
 				    <input type="image" src="<%=basePath%>/image/calendar.gif" width="18" height="17" onClick="CalendarWebControl.show(forms[0].frmWRPT_OPT_DATE2_PJT70302,'',forms[0].frmWRPT_OPT_DATE2_PJT70302);" title="显示日历" />
 				</td>
 			</tr>
 			<tr>
-				<td class="textbar81" width="15%">所入仓库</td>
-				<td class="textbar01" width="35%">
-				<input id="depot" type="text" value="<s:property value="inOrder.repertory"/>">
+				<td class="textbar81" width="10%">所入仓库</td>
+				<td class="textbar01" width="25%">
+				<select id="depot" style="width:152px;font-size: 20px">
+				    <option selected="selected" value="<s:property value="inOrder.repertory"/>"><s:property value="inOrder.repertory"/></option>
+				     <s:iterator value="storenames">
+				          <option value= "<s:property/>"><s:property/></option>
+				     </s:iterator>
+				</select>
 				</td>
-				<td class="textbar81" width="15%">来源</td>
-				<td class="textbar01" width="35%">
+				<td class="textbar81" width="10%">来源</td>
+				<td class="textbar01" width="25%">
 				     <input id="source" type="text"  value="<s:property value="inOrder.source"/>" name="frmWRPT" value="" size="20" style="font-size: 15px;"/>
+				</td>
+				<td class="textbar81" width="10%">经办人</td>
+				<td class="textbar01" width="25%">
+				     <input id="who" type="text" value="<s:property value="inOrder.operator"/>" name="frmWRPT" value="" size="20" style="font-size: 15px;"/>
 				</td>
 			</tr>
 			<tr>
@@ -172,6 +184,9 @@
 			cellpadding="2" bgcolor="gray">
 			<tr>
 				<td class="headerbar61" colspan="1">入库单明细</td>
+				<td class="headerbar61" colspan="1">
+				   <p align="right"> <input type="button" value="新建入库单明细"/></p>
+				</td>
 			</tr>
 		</table>
 

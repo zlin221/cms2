@@ -134,6 +134,8 @@ public class QueryOrderInAction extends ActionSupport {
 
 	@Override
 	public String execute() throws Exception {
+		inDepot = new String(inDepot.getBytes("iso-8859-1"),"utf-8");
+
 		inOrders = queryOrderInService.queryOrderIn(firstPage,receiptsNumber2,inDepot,dateStart,dateEnd);
 		pages = queryOrderInService.getAllPages();
 		currentpage = queryOrderInService.getCurrentPage();

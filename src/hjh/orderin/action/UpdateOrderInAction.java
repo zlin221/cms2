@@ -11,10 +11,19 @@ public class UpdateOrderInAction extends ActionSupport {
     private String inDepot;
     private String source;
     private String note;
+    private String who;
 
     private UpdateOrderInService updateOrderInService;
     
     
+	public String getWho() {
+		return who;
+	}
+
+	public void setWho(String who) {
+		this.who = who;
+	}
+
 	public String getReceiptsNumber() {
 		return receiptsNumber;
 	}
@@ -74,9 +83,12 @@ public class UpdateOrderInAction extends ActionSupport {
 
 	@Override
 	public String execute() throws Exception {
-		System.out.println(id_count);
-		System.out.println(inDepot);
-		updateOrderInService.update(id_count,receiptsNumber,inDate,inDepot,source,note);
+		inDepot = new String(inDepot.getBytes("iso-8859-1"),"utf-8");
+		source = new String(source.getBytes("iso-8859-1"),"utf-8");
+		note = new String(note.getBytes("iso-8859-1"),"utf-8");
+		who = new String(who.getBytes("iso-8859-1"),"utf-8");
+		id_count = new String(id_count.getBytes("iso-8859-1"),"utf-8");
+		updateOrderInService.update(id_count,receiptsNumber,inDate,inDepot,source,note,who);
 		return super.execute();
 	}
     

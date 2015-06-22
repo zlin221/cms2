@@ -9,7 +9,8 @@ public class AddOrderInAction extends ActionSupport {
 	private String repotory;
 	private String source;
 	private String note;
-	private String orderInDetails;
+	private String who = "hjh";
+	private String orderInDetails="";
 	
 	private long justInsertId = -1;
 	
@@ -71,9 +72,27 @@ public class AddOrderInAction extends ActionSupport {
 		this.note = note;
 	}
 
+	
+	
+	public String getWho() {
+		return who;
+	}
+
+	public void setWho(String who) {
+		this.who = who;
+	}
+
 	@Override
 	public String execute() throws Exception {
-		justInsertId = addOrderInService.addOrderIn(inDate, repotory, source,note, orderInDetails);
+		repotory = new String(repotory.getBytes("iso-8859-1"),"utf-8");
+		source = new String(source.getBytes("iso-8859-1"),"utf-8");
+		note = new String(note.getBytes("iso-8859-1"),"utf-8");
+		who = new String(who.getBytes("iso-8859-1"),"utf-8");
+	    orderInDetails = new String(orderInDetails.getBytes("iso-8859-1"),"utf-8");
+ 
+	    System.out.println(who);
+ 		
+		justInsertId = addOrderInService.addOrderIn(who,inDate, repotory, source,note, orderInDetails);
 	    if(justInsertId != -1) return SUCCESS;
 	    return ERROR;
 	}

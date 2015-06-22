@@ -83,7 +83,7 @@ function locatePage(id){
   
   
   <body BACKGROUND="<%=basePath%>/image/bg.gif">
-	<FORM NAME="idFrmMain" ID="idmig0101" METHOD="POST"  ACTION="" ONSUBMIT="" >
+	<FORM NAME="idFrmMain" ID="idmig0101" METHOD="POST"  ACTION="" ONSUBMIT="">
 	 
 	<table border=0 cellspacing=0 cellpadding=2 width="100%" bgcolor="gray">
 	<tr>
@@ -125,10 +125,10 @@ function locatePage(id){
 		<tr>			  
 			<td class="textbar81" width="15%">入库日期</td>
 			<td class="textbar01" width="35%" colspan="3">
-				<input value="2015-6-10" type="text" name="frmWRPT_OPT_DATE2_PJT70302" id="frmWRPT_OPT_DATE2_PJT70302" readonly="readonly" size="12">
+				<input value="2007-6-10" type="text" name="frmWRPT_OPT_DATE2_PJT70302" id="frmWRPT_OPT_DATE2_PJT70302" readonly="readonly" size="12">
 				<input type="image" src="<%=basePath%>/image/calendar.gif" width="18" height="17" onClick="CalendarWebControl.show(forms[0].frmWRPT_OPT_DATE2_PJT70302,'',forms[0].frmWRPT_OPT_DATE2_PJT70302);" title="显示日历" />
 				~ 
-				<input value="2007-6-10" type="text" name="frmWRPT_OPT_DATE3_PJT70302" id="frmWRPT_OPT_DATE3_PJT70302"  readonly="readonly" size="12">
+				<input value="2015-11-10" type="text" name="frmWRPT_OPT_DATE3_PJT70302" id="frmWRPT_OPT_DATE3_PJT70302"  readonly="readonly" size="12">
 				<input type="image" src="<%=basePath%>/image/calendar.gif" width="18" height="17" onClick="CalendarWebControl.show(forms[0].frmWRPT_OPT_DATE3_PJT70302,'',forms[0].frmWRPT_OPT_DATE3_PJT70302);" title="显示日历" />
 		  </td>
 			
@@ -178,7 +178,7 @@ function locatePage(id){
 					<s:iterator value="inOrders" id="inOrder">
 						<tr>
 							<td  class="gridbar11" align="center"><%=index++ %></td>
-							<td  class="gridbar11" align="center"><a href="hjh/get_orderin_action.action?orderInId=<s:property value="#inOrder.receiptsNumber"/>"><s:property value="#inOrder.receiptsNumber"/></a></td>
+							<td  class="gridbar11" align="center"><a href="hjh/get_orderin_action.action?orderInId=<s:property value="#inOrder.receiptsNumber"/>">RC071105CEN00<s:property value="#inOrder.receiptsNumber"/></a></td>
 							<td  class="gridbar11" align="center"><s:property value="#inOrder.repertory"/> </td>
 							<td  class="gridbar11" align="center"><s:property value="#inOrder.inDate"/> </td>
 							<td  class="gridbar11" align="center"><s:property value="#inOrder.operator"/></td>

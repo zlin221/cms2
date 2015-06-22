@@ -29,6 +29,8 @@ public class AddOrderInDAOImpl implements AddOrderInDAO {
 		try {
 			List<StorePO> storePO = session.createQuery("from StorePO where storename = :storename")
 			    .setString("storename",inOrder.getRepertory()).list();
+			System.out.println(inOrder.getRepertory());
+			System.out.println(storePO.size());
 			if(storePO.size() == 1){
 				StorePO so = storePO.get(0);
 				so.setStoragevolume(Integer.valueOf(so.getStoragevolume()) + countSum + "");

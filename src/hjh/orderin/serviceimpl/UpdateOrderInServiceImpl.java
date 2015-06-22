@@ -20,8 +20,8 @@ public class UpdateOrderInServiceImpl implements UpdateOrderInService {
 
 	@Override
 	public boolean update(String data,String receiptsNumber,String inDate,
-			String inDepot,String source,String note) {
-		return updateOrderInDAOImpl.update(data, receiptsNumber, inDate, inDepot, source, note);
+			String inDepot,String source,String note,String who) {
+		return updateOrderInDAOImpl.update(data, receiptsNumber, inDate, inDepot, source, note,who);
 	}	
 }
 
