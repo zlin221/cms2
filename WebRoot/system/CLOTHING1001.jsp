@@ -176,7 +176,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				}
 				
 					
-					return false;					
+					return false;		
+								
 			}
 				
 				
@@ -186,9 +187,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				//动态修改表单的action属性
 				targetForm.action="zlinclothing/findclothing.action?clothnum="+clothnum+
 				"&type="+encodeURI(encodeURI(type))+"&color="+encodeURI(encodeURI(colortext))+"&size="+sizetext;
+				//document.forms[0].submit();
 				return true;
 			}	
   		}
+  		
+		
+		
   </script>
   
   
@@ -199,7 +204,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <tr>
 	<td class="headerbar61">货号查询</td>
     <td class="headerbar63" width="50%" colspan="1"><p align="right">
-    	<input type=submit value=" 查 询 " onClick="queryclothing();"></p></td>
+
+    	<input type=submit value=" 查 询 " onClick="return queryclothing();" id="querysubmit"></p></td>
+
   </tr>
 <!-- </tr>-->
 </table>
@@ -281,9 +288,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <!-- 改变clothingtable 行的样式，奇数行显示一个样式，偶数行显示一个样式 -->	
   	<script language="javascript">
   		window.onload=function(){
-  		chtd(); 		
+  		chtd();  			
   		}
-  		
   		
   		
   	//	function setpagenum(){

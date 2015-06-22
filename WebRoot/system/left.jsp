@@ -34,7 +34,7 @@ function jsgoto(surl){
 	document.idFrmMain.submit();
 }
 
-function gotoclothing(){	
+function gotoclothing(){
 		document.idFrmMain.action="<%=basePath%>/zlinclothing/findallclothing.action";
 		document.idFrmMain.target = "main";
 		document.idFrmMain.submit();

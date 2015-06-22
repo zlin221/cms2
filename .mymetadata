@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-module
   type="WEB"
+<<<<<<< HEAD
   name="cms-final"
   id="myeclipse.1432699563965"
   context-root="/cms-final"
   j2ee-spec="6.0"
   archive="cms-final.war">
+=======
+  name="cms"
+  id="myeclipse.1432699563965"
+  context-root="/cms-final"
+  j2ee-spec="6.0"
+  archive="cms.war">
+>>>>>>> 6810c048c003bb3b25d962bd48e5dbd4d32a3a51
   <attributes>
     <attribute name="webrootdir" value="WebRoot" />
   </attributes>
