@@ -1,6 +1,7 @@
 package zlin.store.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import zlin.clothing.po.ClothingPO;
 import zlin.clothing.vo.PageBean;
@@ -33,8 +34,8 @@ public class StoreService {
 	}
 	
 	/**
-     * pageSizeÎªÃ¿Ò³ÏÔÊ¾µÄ¼ÇÂ¼Êý
-     * pageÎªµ±Ç°ÏÔÊ¾µÄÍøÒ³
+     * pageSizeÎªÃ¿Ò³ï¿½ï¿½Ê¾ï¿½Ä¼ï¿½Â¼ï¿½ï¿½
+     * pageÎªï¿½ï¿½Ç°ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½Ò³
 	 * @throws Exception 
      */
 	public PageBean findAllStore(int pageSize, int page)
@@ -67,7 +68,7 @@ public class StoreService {
 		
 	}
 	
-	//°´Ìõ¼þ²éÕÒ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public PageBean findStore(String STORENUM,String STORENAME,int pageSize, int page)
 	{
 		PageBean pageBean=new PageBean();
@@ -103,7 +104,7 @@ public class StoreService {
 	}
 	
 	
-	//ÐÂ½¨²Ö¿â
+	//ï¿½Â½ï¿½ï¿½Ö¿ï¿½
 	public Long newStore(StorePO STOREPO)
 	{
 		StorePO storepo=new StorePO();
@@ -124,7 +125,7 @@ public class StoreService {
 		return id;
 	}
 	
-	//É¾³ýÒ»¸ö²Ö¿â
+	//É¾ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ö¿ï¿½
 	public void deleteStore(Long STOREID)
 	{
 		try{
@@ -137,7 +138,7 @@ public class StoreService {
 	}
 	
 	
-	//²éÕÒÒ»¸ö²Ö¿âÐÅÏ¢
+	//ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ö¿ï¿½ï¿½ï¿½Ï¢
 	public StorePO findAStore(Long STOREID)
 	{
 		try{
@@ -150,7 +151,7 @@ public class StoreService {
 	}
 	
 	
-	//¸üÐÂÒ»¸ö²Ö¿âÐÅÏ¢
+	//ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ö¿ï¿½ï¿½ï¿½Ï¢
 	public void updateStore(StorePO storepo)
 	{
 		try{
@@ -161,6 +162,11 @@ public class StoreService {
 		}
 	}
 
+	
+	public List<StorePO> findAllStore(){
+		List<StorePO> storeLists = storedao.findAllStore();
+		return storeLists;
+	}
 	
 	
 }

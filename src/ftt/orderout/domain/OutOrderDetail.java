@@ -1,6 +1,6 @@
-package ftt.orderout.po;
+package ftt.orderout.domain;
 
-public class OutOrderDetail {
+public class OutOrderDetail {//多方
 	private Long id;
 	private String goodsNo;
 	private String brandName;
@@ -8,8 +8,6 @@ public class OutOrderDetail {
 	private String size;
 	private int number;
 	
-	private OutOrder outOrder;
-
 	public Long getId() {
 		return id;
 	}
@@ -58,20 +56,11 @@ public class OutOrderDetail {
 		this.number = number;
 	}
 
-	public OutOrder getOutOrder() {
-		return outOrder;
-	}
-
-	public void setOutOrder(OutOrder outOrder) {
-		this.outOrder = outOrder;
-	}
-
 	@Override
 	public String toString() {
 		return "OutOrderDetail [id=" + id + ", goodsNo=" + goodsNo
 				+ ", brandName=" + brandName + ", colorName=" + colorName
-				+ ", size=" + size + ", number=" + number + ", outOrder="
-				+ outOrder + "]";
+				+ ", size=" + size + ", number=" + number + "]";
 	}
-	
+
 }

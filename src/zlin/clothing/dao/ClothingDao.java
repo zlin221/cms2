@@ -25,7 +25,7 @@ import zlin.store.po.StorePO;
 public class ClothingDao extends HibernateDaoSupport
 {
 
-	//»ñÈ¡È«²¿ÐÅÏ¢
+	//ï¿½ï¿½È¡È«ï¿½ï¿½ï¿½ï¿½Ï¢
 	public int getAllRowCount(String hql)
     {
 			int allRows = 0;           
@@ -39,8 +39,8 @@ public class ClothingDao extends HibernateDaoSupport
 	
 	
 	/**
-     * Ê¹ÓÃhibernateÌá¹©µÄ·ÖÒ³¹¦ÄÜ£¬µÃµ½·ÖÒ³ÏÔÊ¾µÄÊý¾Ý
-     * ²éÑ¯È«²¿ÐÅÏ¢
+     * Ê¹ï¿½ï¿½hibernateï¿½á¹©ï¿½Ä·ï¿½Ò³ï¿½ï¿½ï¿½Ü£ï¿½ï¿½Ãµï¿½ï¿½ï¿½Ò³ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½
+     * ï¿½ï¿½Ñ¯È«ï¿½ï¿½ï¿½ï¿½Ï¢
      */
 	public List findAllClothing(final int offset,final int pageSize)throws Exception
 	{
@@ -63,16 +63,16 @@ public class ClothingDao extends HibernateDaoSupport
 	
 	
 	/**
-     * Ê¹ÓÃhibernateÌá¹©µÄ·ÖÒ³¹¦ÄÜ£¬µÃµ½·ÖÒ³ÏÔÊ¾µÄÊý¾Ý
-     * °´Ìõ¼þ²éÑ¯ÐÅÏ¢
+     * Ê¹ï¿½ï¿½hibernateï¿½á¹©ï¿½Ä·ï¿½Ò³ï¿½ï¿½ï¿½Ü£ï¿½ï¿½Ãµï¿½ï¿½ï¿½Ò³ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½Ï¢
      */
 
 	public List findClothing(final String CLOTHNUM,final String TYPE,final String COLOR,final String SIZE,final int offset,final int pageSize)throws Exception
 	{
-		final String clothnum=CLOTHNUM;//»õºÅ
-		final String type=TYPE;//Æ·Ãû
-		final String color=COLOR;//É«ºÅ
-		final String size=SIZE;//³ßÂë
+		final String clothnum=CLOTHNUM;//ï¿½ï¿½ï¿½ï¿½
+		final String type=TYPE;//Æ·ï¿½ï¿½
+		final String color=COLOR;//É«ï¿½ï¿½
+		final String size=SIZE;//ï¿½ï¿½ï¿½ï¿½
 		
 	    List resultlist = new ArrayList<ClothingPO>();
 
@@ -100,21 +100,21 @@ public class ClothingDao extends HibernateDaoSupport
 	
 	
 	
-	//ÐÂ½¨»õºÅ(´«ÈëÒ»¸ö»õºÅ¶ÔÏó)·µ»Ø»õºÅID
+	//ï¿½Â½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Å¶ï¿½ï¿½ï¿½)ï¿½ï¿½ï¿½Ø»ï¿½ï¿½ï¿½ID
 	public Long newClothing(ClothingPO CLOTHINGPO)throws Exception
 	{
 		System.out.println("this is newclothing dao");
 
 
 	    ClothingPO clothingpo = new ClothingPO();
-	    clothingpo.setClothnum(CLOTHINGPO.getClothnum());//»õºÅ
-	    clothingpo.setColor(CLOTHINGPO.getColor());//É«ºÅ
-	    clothingpo.setFabric(CLOTHINGPO.getFabric());//ÃæÁÏ
-	    clothingpo.setSize(CLOTHINGPO.getSize());//³ßÂë
-	    clothingpo.setType(CLOTHINGPO.getType());//Æ·Ãû
-	    clothingpo.setRetailPrice(CLOTHINGPO.getRetailPrice());//ÁãÊÛ¼Û
-	    clothingpo.setFactoryPrice(CLOTHINGPO.getFactoryPrice());//³ö³§¼Û
-	    clothingpo.setClothingMaterial(CLOTHINGPO.getClothingMaterial());//ÀïÁÏ
+	    clothingpo.setClothnum(CLOTHINGPO.getClothnum());//ï¿½ï¿½ï¿½ï¿½
+	    clothingpo.setColor(CLOTHINGPO.getColor());//É«ï¿½ï¿½
+	    clothingpo.setFabric(CLOTHINGPO.getFabric());//ï¿½ï¿½ï¿½ï¿½
+	    clothingpo.setSize(CLOTHINGPO.getSize());//ï¿½ï¿½ï¿½ï¿½
+	    clothingpo.setType(CLOTHINGPO.getType());//Æ·ï¿½ï¿½
+	    clothingpo.setRetailPrice(CLOTHINGPO.getRetailPrice());//ï¿½ï¿½ï¿½Û¼ï¿½
+	    clothingpo.setFactoryPrice(CLOTHINGPO.getFactoryPrice());//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	    clothingpo.setClothingMaterial(CLOTHINGPO.getClothingMaterial());//ï¿½ï¿½ï¿½ï¿½
 	    
 	    Long id;
 	    id=(Long)this.getHibernateTemplate().save(clothingpo);
@@ -125,7 +125,7 @@ public class ClothingDao extends HibernateDaoSupport
 	
 	
 	
-	//É¾³ý»õºÅ(´«ÈëÒ»¸ö»õºÅ¶ÔÏóµÄID),·µ»ØÉ¾³ýµÄÐÐÊý
+	//É¾ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Å¶ï¿½ï¿½ï¿½ï¿½ID),ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public void deleteClothing(Long CLOTHINGID)throws Exception
 	{
 		this.getHibernateTemplate().delete(this.getHibernateTemplate().get(ClothingPO.class, CLOTHINGID));
@@ -133,14 +133,14 @@ public class ClothingDao extends HibernateDaoSupport
 	}
 	
 	
-	//¸üÐÂ»õºÅÐÅÏ¢
+	//ï¿½ï¿½ï¿½Â»ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	public void updateClothing(ClothingPO CLOTHINGPO)throws Exception
 	{	    
 	    this.getHibernateTemplate().update(CLOTHINGPO);	    	 
 	}
 	
 	
-	//¸üÐÂ»õºÅÐÅÏ¢µÄÊ±ºò£¬ÐèÒª²éÕÒÐèÒª¸üÐÂµÄ»õºÅÐÅÏ¢
+	//ï¿½ï¿½ï¿½Â»ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ÂµÄ»ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	public ClothingPO findAClothing(Long CLOTHINGID)throws Exception
 	{
 	    ClothingPO clothingpo = new ClothingPO();   
@@ -148,5 +148,9 @@ public class ClothingDao extends HibernateDaoSupport
 	    return clothingpo;		
 	}
 	
+	public List<ClothingPO> findAllClothing(){
+		List<ClothingPO> clothingList =  getHibernateTemplate().find("FROM ClothingPO");
+		return clothingList;
+	}
 	
 }

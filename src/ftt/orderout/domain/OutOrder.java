@@ -1,16 +1,19 @@
-package ftt.orderout.po;
+package ftt.orderout.domain;
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-public class OutOrder {
+import zlin.store.po.StorePO;
+
+public class OutOrder {//一方
 	private Long id;
 	private String outNo;
-	private String outStore;
 	private String outDate;
 	private String receivePerson;
+	private Long receivePhone;
 	private String address;
+	private String remark;
+	private StorePO storePO;// 单向 n-1 的关联关系
 	
 	private Set<OutOrderDetail> outOrderDetails = new HashSet<OutOrderDetail>();
 	
@@ -26,13 +29,6 @@ public class OutOrder {
 	public void setOutNo(String outNo) {
 		this.outNo = outNo;
 	}
-	public String getOutStore() {
-		return outStore;
-	}
-	public void setOutStore(String outStore) {
-		this.outStore = outStore;
-	}
-	
 	public String getOutDate() {
 		return outDate;
 	}
@@ -57,11 +53,29 @@ public class OutOrder {
 	public void setOutOrderDetails(Set<OutOrderDetail> outOrderDetails) {
 		this.outOrderDetails = outOrderDetails;
 	}
+	public Long getReceivePhone() {
+		return receivePhone;
+	}
+	public void setReceivePhone(Long receivePhone) {
+		this.receivePhone = receivePhone;
+	}
+	public String getRemark() {
+		return remark;
+	}
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+	public StorePO getStorePO() {
+		return storePO;
+	}
+	public void setStorePO(StorePO storePO) {
+		this.storePO = storePO;
+	}
 	@Override
 	public String toString() {
-		return "OutOrder [id=" + id + ", outNo=" + outNo + ", outStore="
-				+ outStore + ", outDate=" + outDate + ", receivePerson="
-				+ receivePerson + ", address=" + address + ", outOrderDetails="
-				+ outOrderDetails + "]";
+		return "OutOrder [id=" + id + ", outNo=" + outNo + ", outDate="
+				+ outDate + ", receivePerson=" + receivePerson
+				+ ", receivePhone=" + receivePhone + ", address=" + address
+				+ ", remark=" + remark + ", storePO=" + storePO + "]";
 	}
 }

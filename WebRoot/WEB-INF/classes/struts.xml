@@ -6,7 +6,8 @@
  	     
 <struts>
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
-	<constant name="struts.devMode" value="false" /> 	
+	<constant name="struts.devMode" value="false" /> 
+	<constant name="struts.action.extension" value="action"/>	
 	
 	<include file="struts-default.xml" />
 	
@@ -104,6 +105,65 @@
 		<action name="cleanstoreinsession" class="cleanstoreinsession" method="cleanStoreInSession">
 			<result name="success" type="redirect-action">findallstore.action</result>
 		</action>
+	</package>
+	
+	<package name="ftt" extends="json-default" namespace="/outOrder">
+		<action name="findAll" class="outOrderAction" method="findAll">
+			<result name="findAll">/stock/order3001.jsp</result>
+		</action>
+		
+		<action name="findAllStore" class="outOrderAction" method="findAllStore">
+			<result name="findAllStore">/stock/order3002.jsp</result>
+		</action>
+		
+		<action name="findPart" class="outOrderAction" method="findPart">
+			<result name="findPart">/stock/order3001.jsp</result>
+		</action>
+		
+		<action name="del" class="outOrderAction" method="delete">
+			<result type="json" name="delete">
+		        <param name="root">result</param>
+		    </result>
+		</action>
+		
+		<action name="getOrderByOutNo" class="outOrderAction" method="getOrderByOutNo">
+			<result type="json" name="success">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="outOrderSave" class="outOrderAction" method="save">
+			
+			<result type="stream" name="update">
+		        <param name="contentType">text/html</param>
+		        <param name="inputName">inputStream</param>
+		    </result>
+		     
+		     <result type="json" name="save">
+		     	<param name="root">result</param>
+		     </result> 
+		</action>
+		
+	</package>
+	
+	<package name="fttDetail" extends="json-default" namespace="/outOrderDetail">
+		<action name="findAllCloth" class="outOrderDetailAction" method="findAllCloth">
+			<result name="findAllCloth">/stock/order3003.jsp</result>
+		</action>
+		
+		<action name="save" class="outOrderDetailAction" method="save">
+			<result type="json" name="save">
+		     	<param name="root">result</param>
+		    </result> 
+		</action>
+		
+		<action name="delete" class="outOrderDetailAction" method="deleteDetail">
+			<result type="stream" name="deleteDetail">
+		        <param name="contentType">text/html</param>
+		        <param name="inputName">inputStream</param>
+		    </result>
+		</action>
+		
+		
 	</package>
 	
 	
