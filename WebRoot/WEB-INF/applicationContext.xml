@@ -17,7 +17,7 @@
 	</bean>
 
 
-<<<<<<< HEAD
+
 <!-- 定义Hibernate的SessionFactory： -->
  <bean id="sessionfactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
      <property name="dataSource" ref="dataSource"/>
@@ -348,13 +348,3 @@
  </bean>
 </beans>
 
-
-
-
-
-
-
-
-
-
->>>>>>> 6810c048c003bb3b25d962bd48e5dbd4d32a3a51

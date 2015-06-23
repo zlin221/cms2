@@ -107,6 +107,7 @@
 		</action>
 	</package>
 	
+<<<<<<< HEAD
 	<package name="ftt" extends="json-default" namespace="/outOrder">
 		<action name="findAll" class="outOrderAction" method="findAll">
 			<result name="findAll">/stock/order3001.jsp</result>
@@ -167,6 +168,48 @@
 	</package>
 	
 	
+=======
+	<package name="hjh_orderin" extends="struts-default" namespace="/hjh">
+	    <action name="query_orderin_action" class="queryOrderInAction">
+	          <result name="success">/stock/order2001.jsp</result>
+	          <result name="error">/error.jsp</result>
+	    </action>
+	    <action name="delete_orderin_action" class="deleteOrderInAction">
+	          <result name="success" type="redirectAction">
+	          <param name="actionName"> query_orderin_action</param>
+	          <param name="receiptsNumber2">${receiptsNumber}</param>
+	          <param name="inDepot">${inDepot}</param>
+	          <param name="dateStart">${dateStart}</param>
+	          <param name="dateEnd">${dateEnd}</param>
+	          <param name="firstPage">${firstPage}</param>
+	         </result>
+	          <result name="error">/error.jsp</result>
+	          <result name="input">/error.jsp</result>
+	    </action>
+	    
+	    <action name="get_orderinpage_action" class="getAddOrderInPageAction">
+	          <result name="success">/stock/order2002.jsp</result>
+	          <result name="error">/error.jsp</result>
+	    </action>
+	    <action name="add_orderin_action" class="addOrderInAction">
+	          <result name="success" type="redirectAction">
+	              <param name="actionName">query_orderin_action</param>
+	              <param name="receiptsNumber2">${justInsertId}</param>
+	          </result>
+	          <result name="error">/error.jsp</result>
+	    </action>
+	    
+	    <action name="get_orderin_action" class="getOrderInAction">
+	        <result name="success">/stock/order2002_2.jsp</result>
+	        <result name="error">/error.jsp</result>
+	    </action>
+	    
+	    <action name="update_orderin_action" class="updateOrderInAction">
+	       <result name="success" type="redirectAction">query_orderin_action</result>
+	        <result name="error">/error.jsp</result>
+	    </action>
+	</package>
+>>>>>>> 6810c048c003bb3b25d962bd48e5dbd4d32a3a51
 	
 
 </struts>
