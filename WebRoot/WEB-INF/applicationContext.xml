@@ -98,66 +98,9 @@
 	  	<property name="outOrderDetailDaoTwo" ref="outOrderDetailDaoTwo"></property>
 	  	<property name="clothingDao" ref="clothingdao"></property>
 	  </bean>
-	  
-	<!-- 以下定义各个Action类： --> 
-		<!-- 查询全部的货号信息 -->
-	  <bean id="findallclothing" class="zlin.clothing.action.ClothingAction">
-=======
-
-
-	<!-- 定义Hibernate的SessionFactory： -->
-	<bean id="sessionfactory"
-		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
-		<property name="hibernateProperties">
-			<value>
-				hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
-				hibernate.hbm2ddl.auto=update
-			</value>
-		</property>
-
-		<property name="mappingResources">
-			<list>
-				<value>zlin/clothing/po/ClothingPO.hbm.xml</value>
-				<value>zlin/store/po/StorePO.hbm.xml</value>
-				<value>hjh/orderin/domain/InOrder.hbm.xml</value>
-				<value>hjh/orderin/domain/InOrderDetail.hbm.xml</value>
-			</list>
-		</property>
-	</bean>
-
-
-
-
-	<!-- 定义PO： -->
-	<bean id="clothingpo" class="zlin.clothing.po.ClothingPO"></bean>
-	<bean id="storepo" class="zlin.store.po.StorePO"></bean>
-
-	<!-- 定义DAO： -->
-	<bean id="clothingdao" class="zlin.clothing.dao.ClothingDao">
-		<property name="sessionFactory" ref="sessionfactory"></property>
-	</bean>
-
-	<bean id="storedao" class="zlin.store.dao.StoreDao">
-		<property name="sessionFactory" ref="sessionfactory"></property>
-	</bean>
-
-
-	<!-- 定义业务类： -->
-	<bean id="clothingservice" class="zlin.clothing.service.ClothingService">
-		<property name="clothingdao" ref="clothingdao"></property>
-		<property name="clothingpo" ref="clothingpo"></property>
-	</bean>
-
-	<bean id="storeservice" class="zlin.store.service.StoreService">
-		<property name="storedao" ref="storedao"></property>
-		<property name="storepo" ref="storepo"></property>
-	</bean>
-
 	<!-- 以下定义各个Action类： -->
 	<!-- 查询全部的货号信息 -->
 	<bean id="findallclothing" class="zlin.clothing.action.ClothingAction">
->>>>>>> 6810c048c003bb3b25d962bd48e5dbd4d32a3a51
 		<property name="clothingservice" ref="clothingservice"></property>
 	</bean>
 
@@ -249,7 +192,7 @@
 	 <property name="sessionFactory" ref="sessionfactory"></property>
 	</bean>
 	
-<<<<<<< HEAD
+
 	<bean id="outOrderAction" class="ftt.orderout.action.OutOrderAction">
 		<property name="outOrderService" ref="outOrderService"></property>
 		<property name="outOrder" ref="outOrder"></property>
@@ -266,8 +209,6 @@
 		<property name="outOrder" ref="outOrder"></property>
 	</bean>
 	
-</beans>
-=======
 	<bean id="queryRepertoriesServiceImpl" class="hjh.orderin.serviceimpl.QueryRepertoriesServiceImpl">
 	    <property name="queryRepertoriesDAO" ref="queryRepertories"></property>
 	</bean>

@@ -90,7 +90,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td> 
 					<td><img src="./image/top_line.gif" width="2" height="29"></td>
 					<td class="top1" onClick="jsgoto(8);" id="ttd8">
-						<a href="stock/index.jsp" target="midFrame">库存管理</a>
+						<a href="<%=basePath%>stock/index.jsp" target="midFrame">库存管理</a>
 					</td>					
 					<td><img src="./image/top_line.gif" width="2" height="29"></td>
 					<td class="top1" onClick="jsgoto(10);" id="ttd10">
