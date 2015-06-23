@@ -3,7 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<%@taglib prefix="s" uri="/struts-tags" %>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -35,26 +35,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 function goSearch()
 {
-    var receiptsNumber = document.getElementById("receiptsNumber").value;
-    var inDepot = document.getElementById("inDepot").value;
-    var dateStart = document.getElementById("frmWRPT_OPT_DATE2_PJT70302").value;
-    var dateEnd = document.getElementById("frmWRPT_OPT_DATE3_PJT70302").value;
-	document.forms[0].action="hjh/query_orderin_action.action?receiptsNumber2=" + receiptsNumber +
-	    "&inDepot=" + inDepot + "&dateStart=" + dateStart + "&dateEnd=" + dateEnd + 
-	    "&firstPage=1";
+	document.forms[0].action="<%=basePath%>/stock/order2001.jsp";
 	document.forms[0].submit();
 }
-function goSearch2(){
-    document.forms[0].action="hjh/query_orderin_action.action?receiptsNumber2=&inDepot=0&dateStart=&dateEnd=&firstPage=1";
-    document.forms[0].submit();
-}
-function delOrderInById(url)
-{	
-   if(confirm("确定要删除这条入库单吗？删除后不会减少仓库存储量哦！")){
-     document.forms[0].action= url;
-	 document.forms[0].submit();
-   }
-}
+
 function delCom(id){
 	if(id == '1'){
 		document.idFrmMain.gys.value = "";		
@@ -78,20 +62,20 @@ function locatePage(id){
 	document.forms[0].submit();		
 }
 
+ 
 -->
 </SCRIPT>
   
   
   <body BACKGROUND="<%=basePath%>/image/bg.gif">
-	<FORM NAME="idFrmMain" ID="idmig0101" METHOD="POST"  ACTION="" ONSUBMIT="">
+	<FORM NAME="idFrmMain" ID="idmig0101" METHOD="POST"  ACTION="" ONSUBMIT="" >
 	 
 	<table border=0 cellspacing=0 cellpadding=2 width="100%" bgcolor="gray">
 	<tr>
 		<td class="headerbar61">入库单查询</td>
-		<td class="headerbar61">
-		<p align="right">
-			<input type=submit value=" 查 询 " onClick="JavaScript:goSearch();">	
-		</p>
+		<td class="headerbar61"><p align="right">
+			<input type=submit value=" 查 询 " onClick="JavaScript:goSearch();">		
+			</p>
 		</td>
 	</tr>
 	</table>
@@ -108,16 +92,17 @@ function locatePage(id){
 		<tr>
 			<td class= "textbar81" width="15%">所入仓库</td>
 			<td class="textbar01" width="35%">
-				<select id="inDepot" name="storeRoom" style="width:152px">
-					<option value="0">------</option>
-					<s:iterator value="repertories">
-					    <option value="<s:property/>"><s:property/></option>
-					</s:iterator>	
+				<select name="storeRoom" style="width:152px">
+					<option value="">------</option>
+					<option value="1">一号仓库</option>
+					<option value="2">二号仓库</option>
+					<option value="3">三号仓库</option>
+					<option value="4">四号仓库</option>		
 				</select>
 			</td>
 		  <td class="textbar81" width="15%">单据编号</td>
 			<td class="textbar01" width="35%">
-				<input id="receiptsNumber" type="text" name="number" style="width:152px">
+				<input type="text" name="number" style="width:152px">
 			</td>				
 	
 		</tr>
@@ -125,30 +110,31 @@ function locatePage(id){
 		<tr>			  
 			<td class="textbar81" width="15%">入库日期</td>
 			<td class="textbar01" width="35%" colspan="3">
-				<input value="2007-6-10" type="text" name="frmWRPT_OPT_DATE2_PJT70302" id="frmWRPT_OPT_DATE2_PJT70302" readonly="readonly" size="12">
+				<input type="text" name="frmWRPT_OPT_DATE2_PJT70302" id="frmWRPT_OPT_DATE2_PJT70302" value="2007-06-21" readonly="readonly" size="12">
 				<input type="image" src="<%=basePath%>/image/calendar.gif" width="18" height="17" onClick="CalendarWebControl.show(forms[0].frmWRPT_OPT_DATE2_PJT70302,'',forms[0].frmWRPT_OPT_DATE2_PJT70302);" title="显示日历" />
 				~ 
-				<input value="2015-11-10" type="text" name="frmWRPT_OPT_DATE3_PJT70302" id="frmWRPT_OPT_DATE3_PJT70302"  readonly="readonly" size="12">
+				<input type="text" name="frmWRPT_OPT_DATE3_PJT70302" id="frmWRPT_OPT_DATE3_PJT70302" value="2007-06-26" readonly="readonly" size="12">
 				<input type="image" src="<%=basePath%>/image/calendar.gif" width="18" height="17" onClick="CalendarWebControl.show(forms[0].frmWRPT_OPT_DATE3_PJT70302,'',forms[0].frmWRPT_OPT_DATE3_PJT70302);" title="显示日历" />
 		  </td>
 			
 		</tr>	
 		
 	</table>
-	
 	<table border=0 cellspacing=0 cellpadding=0 width="100%" height=5>
 	<tr>
 		<td></td>
 	</tr>
 	</table>
 	
-	
 	<table border="0" width="100%" id="table1" cellspacing="0"  cellpadding="2"  bgcolor="gray">
 		<tr>
-	  	<td class="headerbar61" width="100%" colspan="1">
-	  	入库单列表<a href="hjh/get_orderinpage_action.action" style="margin-left: 985px">新&nbsp;&nbsp;增&nbsp;</a>
+	  	<td class="headerbar61" width="100%" colspan="1">入库单明细</td>
+	  		<td class="headerbar61">
+	  		<p align="rigth">
+	  			<input type=submit value=" 新 增 " onClick="JavaScript:jsgoto('<%=basePath%>/stock/order2002.jsp');">
+	  		</p>
 	  	</td>
-	  	</tr>
+	  	
 	  	
 	</table>
 	
@@ -156,60 +142,49 @@ function locatePage(id){
 		<tr>
 	  	<td  width="100%" colspan="1">
 	    	<table  border="0" cellspacing="1" cellpadding="2" width="100%">
-	    	
 					<tr>
 						<td  width="5%"  class="headerbar82">序号</td>
 						<td   width="15%"  class="headerbar82">单据编号</td>
 						<td   width="20%" class="headerbar82">所入仓库</td>
-						<td   width="15%" class="headerbar82">入库日期</td>					
-						<td   width="15%" class="headerbar82">经办人</td>
-						<td   width="25%" class="headerbar82">来源</td>
+						<td    width="15%" class="headerbar82">入库日期</td>					
+						<td    width="15%" class="headerbar82">经办人</td>
+						<td    width="25%" class="headerbar82">来源</td>
 						<td  class="headerbar82">操作</td>			
 					</tr>
-					<s:if test="inOrders == null">
-					     <tr><td colspan="6"><p style="color:red ;text-align: center;font-size: larger;">没有入库单记录！</p></td></tr>
-					</s:if>
-					<s:elseif test="inOrders.size == 0">
-					     <tr><td colspan="6"><p style="color:red;text-align: center;font-size: larger;">没有入库单记录！</p></td></tr>
-					</s:elseif>
-					
-					<s:else>
-					<% int index = 1; %>
-					<s:iterator value="inOrders" id="inOrder">
-						<tr>
-							<td  class="gridbar11" align="center"><%=index++ %></td>
-							<td  class="gridbar11" align="center"><a href="hjh/get_orderin_action.action?orderInId=<s:property value="#inOrder.receiptsNumber"/>">RC071105CEN00<s:property value="#inOrder.receiptsNumber"/></a></td>
-							<td  class="gridbar11" align="center"><s:property value="#inOrder.repertory"/> </td>
-							<td  class="gridbar11" align="center"><s:property value="#inOrder.inDate"/> </td>
-							<td  class="gridbar11" align="center"><s:property value="#inOrder.operator"/></td>
-							<td  class="gridbar11" align="center"><s:property value="#inOrder.source"/></td>
-							<td  class="gridbar11" align="center">
-							<img src="<%=basePath%>/image/del.gif" align="bottom" border="0" alt="作废" 
-							onclick="JavaScript:delOrderInById('hjh/delete_orderin_action.action?delReceiptsNumber=<s:property value="#inOrder.receiptsNumber"/>&receiptsNumber=<s:property value="receiptsNumber2"/>&inDepot=<s:property value="inDepot"/>&dateStart=<s:property value="dateStart" />&dateEnd=<s:property value="dateEnd"/>&firstPage=<s:property value="1"/>');"/>
-							</td>
-						</tr>
-					</s:iterator>
-					</s:else>
+					<tr>
+						<td  class="gridbar11" align="center">1</td>
+						<td  class="gridbar11" align="center"><a href="<%=basePath%>/stock/order2002.jsp">RC071105CEN0052</a></td>
+						<td  class="gridbar11" align="center">一号仓库 </td>
+						<td  class="gridbar11" align="center">2007-11-05</td>
+						<td  class="gridbar11" align="left">张三</td>
+						<td  class="gridbar11" align="left">第一分公司</td>
+						<td  class="gridbar11" align="center">
+							<a href = "#"><img src="<%=basePath%>/image/del.gif" align="bottom" border="0" alt="作废" onClick="javascript:del('673467')" /></a>					</td>
+					</tr>
+					<tr>
+						<td  class="gridbar01" align="center">2</td>
+						<td  class="gridbar01" align="center"><a href="<%=basePath%>/stock/order2002.jsp">RC071105CEN0053</a></td>
+						<td  class="gridbar01" align="center">二号仓库</td>
+						<td  class="gridbar01" align="center">2007-11-05</td>
+						<td  class="gridbar01" align="left">李四</td>
+						<td  class="gridbar01" align="left">第一分公司</td>
+						<td  class="gridbar01" align="center">
+							<a href = "#"><img src="<%=basePath%>/image/del.gif" align="bottom" border="0" alt="作废" onClick="javascript:del('673467')" /></a>					</td>
+					</tr>
 				</table>
 		  </td>
 		</tr>
-			
 	</table>
-
-					
 	
 	<table width="100%" border="0" cellpadding="0" cellspacing="2">
 		<tr>
 	  	<td colspan="2" align="right" height="20"  nowrap class="textbar3" >
-		&nbsp; 共<s:property value="pages"/>页 &nbsp;&nbsp; 第<s:property value="currentpage"/>/<s:property value="pages"/>页 &nbsp;&nbsp;
-			<a  href="http://localhost:8080/cms-final/hjh/query_orderin_action.action?receiptsNumber2=<s:property value="receiptsNumber2"/>&inDepot=<s:property value="inDepot"/>&dateStart=<s:property value="dateStart" />&dateEnd=<s:property  value="dateEnd"/>&firstPage=1" style="cursor:hand">首页</a>&nbsp;&nbsp; 
-	 		<a style="cursor:hand" href="http://localhost:8080/cms-final/hjh/query_orderin_action.action?receiptsNumber2=<s:property value="receiptsNumber2"/>&inDepot=<s:property value="inDepot"/>&dateStart=<s:property value="dateStart" />&dateEnd=<s:property value="dateEnd"/>&firstPage=<s:property value="prepage"/>" >上一页</a>
-	 		&nbsp;&nbsp; 
-	 		<a style="cursor:hand" href="http://localhost:8080/cms-final/hjh/query_orderin_action.action?receiptsNumber2=<s:property value="receiptsNumber2"/>&inDepot=<s:property value="inDepot"/>&dateStart=<s:property value="dateStart" />&dateEnd=<s:property value="dateEnd"/>&firstPage=<s:property value="nextpage"/> ">下一页</a>
-	 		&nbsp;&nbsp; 
-	 		<a style="cursor:hand" href="http://localhost:8080/cms-final/hjh/query_orderin_action.action?receiptsNumber2=<s:property value="receiptsNumber2"/>&inDepot=<s:property value="inDepot"/>&dateStart=<s:property value="dateStart" />&dateEnd=<s:property value="dateEnd"/>&firstPage=<s:property value="pages"/> ">尾页</a>
-	 		&nbsp;&nbsp;  
-		</td>
+		&nbsp; 共4条 &nbsp;&nbsp; 第1/1页 &nbsp;&nbsp;
+			<a  href="#" style="cursor:hand">首页</a>&nbsp;&nbsp; 
+	 		<a style="cursor:hand" href="#">上一页</a>&nbsp;&nbsp; 
+	 		<a style="cursor:hand" href="#">下一页</a>&nbsp;&nbsp; 
+	 		<a style="cursor:hand" href="#">尾页</a>&nbsp;&nbsp;  
+			</td>
 	  </tr>
 	</table>
 	</FORM>

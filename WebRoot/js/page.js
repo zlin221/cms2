@@ -72,6 +72,12 @@ function menuGoto(sur,targetName)
 	document.forms[0].submit();
 }
 
+function del(id)
+{
+	if(confirm("您确定删除该条数据？")){
+		alert("删除成功！");
+	}
+}
 
 function cancel(id)
 {

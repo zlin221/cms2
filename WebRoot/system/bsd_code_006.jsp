@@ -51,9 +51,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	 
 	-->
 	</SCRIPT>
- 
- 
- 
+  
+  <body BACKGROUND="<%=basePath%>/image/bg.gif">
+    <FORM NAME="idFrmMain" ID="idmig0101" METHOD="POST"  ACTION="" ONSUBMIT="" >
+
+
 
 <script language="javascript">
   		
@@ -97,7 +99,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
   		}
   		
-  	
   		//查询仓库之前，先对输入的条件进行验证
   		function querystore()
   		{
@@ -115,7 +116,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					addnode("必填","storenum");
 					
 				}
-				
 				else{
 					removenode("storenum");
 				}	
@@ -125,40 +125,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				{
 					addnode("必填","storename");				
 				}
-				
 				else{
 					removenode("storename");
 				}	
 				
-				return false;
-										
+				
+					return false;					
 			}
 				
 				
 			else{
-				
+			
   				var targetForm=document.forms[0];
 				//动态修改表单的action属性
 				targetForm.action="zlinstore/findstore.action?storenum="+encodeURI(encodeURI(storenum))+
 				"&storename="+encodeURI(encodeURI(storename));
-				
 				return true;
-				
 			}	
   		}
-  		
-  		
-  	
-  		
   </script>
   
 
-
- 
- 
-  
-  <body BACKGROUND="<%=basePath%>/image/bg.gif">
-    <FORM NAME="idFrmMain" ID="idmig0101" METHOD="POST"  ACTION="" ONSUBMIT="return true" >
 
 
 
@@ -166,7 +153,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <tr>
 	<td class="headerbar61">仓库查询</td>
     <td class="headerbar63" width="50%" colspan="1"><p align="right">
-    	<input type=submit value=" 查 询 " onClick="return querystore();"></p></td>
+    	<input type=submit value=" 查 询 " onClick="querystore();"></p></td>
   </tr>
 <!-- </tr>-->
 </table>
@@ -184,8 +171,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     <td class="textbar81" width="15%">仓库编号</td>
 		<td class="textbar01" width="35%">			
-		<input type="text" name="hh" value="" style="width:210px" id="storenum">
-		 </td>    
+		<input type="text" name="hh" value="" style="width:210px" id="storenum">	  </td>    
 	<td class="textbar81" width="15%">仓库名称</td>
 		<td class="textbar01" width="35%">			
 		<input type="text" name="hh" value="" style="width:210px" id="storename">	  </td>    

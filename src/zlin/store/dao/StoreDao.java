@@ -15,7 +15,7 @@ import zlin.store.po.StorePO;
 
 public class StoreDao extends HibernateDaoSupport
 {
-	//»ñÈ¡È«²¿ÐÅÏ¢
+	//ï¿½ï¿½È¡È«ï¿½ï¿½ï¿½ï¿½Ï¢
 	public int getAllRowCount(String hql)
     {
 			int allRows = 0;           
@@ -24,7 +24,7 @@ public class StoreDao extends HibernateDaoSupport
         	return allRows;
     }
 	
-	//°´·ÖÒ³²éÑ¯È«²¿²Ö¿âÐÅÏ¢
+	//ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½Ñ¯È«ï¿½ï¿½ï¿½Ö¿ï¿½ï¿½ï¿½Ï¢
 	public List findAllStore(final int offset,final int pageSize)throws Exception
 	{
 
@@ -44,13 +44,13 @@ public class StoreDao extends HibernateDaoSupport
 	}
 	
 	
-	//°´Ìõ¼þ²éÕÒ²Ö¿âÐÅÏ¢
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò²Ö¿ï¿½ï¿½ï¿½Ï¢
 	public List findStore(final String STORENUM,final String STORENAME,final int offset,final int pageSize)throws Exception
 	{
 		List resultlist=new ArrayList<StorePO>();
 		
-		final String storenum=STORENUM;//²Ö¿â±àºÅ
-		final String storename=STORENAME;//²Ö¿âÃû³Æ
+		final String storenum=STORENUM;//ï¿½Ö¿ï¿½ï¿½ï¿½
+		final String storename=STORENAME;//ï¿½Ö¿ï¿½ï¿½ï¿½ï¿½
 
 		 StorePO storepo=new StorePO();
 		 resultlist = (ArrayList<StorePO>) getHibernateTemplate().execute(new HibernateCallback(){   
@@ -69,7 +69,7 @@ public class StoreDao extends HibernateDaoSupport
 		
 	}
 	
-	//ÐÂ½¨²Ö¿â
+	//ï¿½Â½ï¿½ï¿½Ö¿ï¿½
 	public Long newStore(StorePO STOREPO)throws Exception
 	{
 		StorePO storepo=new StorePO();
@@ -87,14 +87,14 @@ public class StoreDao extends HibernateDaoSupport
 	}
 	
 	
-	//É¾³ý²Ö¿â
+	//É¾ï¿½ï¿½Ö¿ï¿½
 	public void deleteStore(Long STOREID)throws Exception
 	{		
 		this.getHibernateTemplate().delete(this.getHibernateTemplate().get(StorePO.class, STOREID));
 		
 	}
 	
-	//°´ÕÕID²éÑ¯Ò»¸ö²Ö¿â
+	//ï¿½ï¿½ï¿½ï¿½IDï¿½ï¿½Ñ¯Ò»ï¿½ï¿½ï¿½Ö¿ï¿½
 	public StorePO findAStore(Long STOREID)throws Exception
 	{
 		StorePO storepo=new StorePO();
@@ -102,10 +102,14 @@ public class StoreDao extends HibernateDaoSupport
 		return storepo;
 	}
 	
-	//ÐÞ¸Ä²Ö¿âÐÅÏ¢
+	//ï¿½Þ¸Ä²Ö¿ï¿½ï¿½ï¿½Ï¢
 	public void updateStore(StorePO storepo)throws Exception
 	{
 		 this.getHibernateTemplate().update(storepo);
+	}
+	
+	public List<StorePO> findAllStore(){
+		return (List<StorePO>)getHibernateTemplate().find("FROM StorePO");
 	}
 	
 	

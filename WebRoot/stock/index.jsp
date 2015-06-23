@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <frameset cols="180,10,*" name="sss" frameborder="NO" border="0" framespacing="0" rows="*">
 	    <frame name="left" noresize scrolling="auto" src="<%=basePath%>/stock/left.jsp">
 	    <frame src="<%=basePath%>/stock/middle.jsp" name="middle" scrolling="NO" noresize>
-	    <frame name="main" src="http://localhost:8080/cms-final/hjh/query_orderin_action.action" scrolling="auto">
+	    <frame name="main" src="<%=basePath%>/stock/order2001.jsp" scrolling="auto">
 	   </frameset><noframes></noframes>
 		<noframes><body>
 		</body></noframes>
