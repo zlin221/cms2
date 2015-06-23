@@ -107,7 +107,7 @@
 		</action>
 	</package>
 	
-<<<<<<< HEAD
+
 	<package name="ftt" extends="json-default" namespace="/outOrder">
 		<action name="findAll" class="outOrderAction" method="findAll">
 			<result name="findAll">/stock/order3001.jsp</result>
@@ -168,7 +168,7 @@
 	</package>
 	
 	
-=======
+
 	<package name="hjh_orderin" extends="struts-default" namespace="/hjh">
 	    <action name="query_orderin_action" class="queryOrderInAction">
 	          <result name="success">/stock/order2001.jsp</result>
@@ -209,7 +209,7 @@
 	        <result name="error">/error.jsp</result>
 	    </action>
 	</package>
->>>>>>> 6810c048c003bb3b25d962bd48e5dbd4d32a3a51
+
 	
 
 </struts>
