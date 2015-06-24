@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-module
   type="WEB"
-  name="cms2"
+  name="cms-final"
   id="myeclipse.1434973219464"
   j2ee-spec="1.4"
-  archive="cms2.war">
+  archive="cms-final.war">
   <attributes>
     <attribute name="webrootdir" value="WebRoot" />
   </attributes>
