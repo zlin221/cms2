@@ -3,6 +3,7 @@
   type="WEB"
   name="cms-final"
   id="myeclipse.1434973219464"
+  context-root="/cms-final"
   j2ee-spec="1.4"
   archive="cms-final.war">
   <attributes>
